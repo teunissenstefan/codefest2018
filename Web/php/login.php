@@ -40,8 +40,7 @@
 					{
 						unset($gebruikerRij['password']);
 						$_SESSION['user'] = $gebruikerRij;
-						//header('location: index.php?page=home');
-						echo "logged in";
+						header('location: index.php?page=adminmenu');
 					}
 					else
 					{
