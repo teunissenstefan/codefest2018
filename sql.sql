@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Gegenereerd op: 28 mrt 2018 om 21:52
--- Serverversie: 10.1.29-MariaDB
--- PHP-versie: 7.2.0
+-- Host: localhost
+-- Generation Time: Mar 28, 2018 at 11:59 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `ervaring`
+-- Table structure for table `ervaring`
 --
 
 CREATE TABLE `ervaring` (
@@ -34,7 +34,7 @@ CREATE TABLE `ervaring` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `ervaring`
+-- Dumping data for table `ervaring`
 --
 
 INSERT INTO `ervaring` (`Ervaring_Id`, `Omschrijving`) VALUES
@@ -44,7 +44,7 @@ INSERT INTO `ervaring` (`Ervaring_Id`, `Omschrijving`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `expertise`
+-- Table structure for table `expertise`
 --
 
 CREATE TABLE `expertise` (
@@ -53,7 +53,7 @@ CREATE TABLE `expertise` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `expertise`
+-- Dumping data for table `expertise`
 --
 
 INSERT INTO `expertise` (`Expertise_Id`, `Omschrijving`) VALUES
@@ -63,7 +63,7 @@ INSERT INTO `expertise` (`Expertise_Id`, `Omschrijving`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `expertisegroep`
+-- Table structure for table `expertisegroep`
 --
 
 CREATE TABLE `expertisegroep` (
@@ -71,21 +71,23 @@ CREATE TABLE `expertisegroep` (
   `Expertise_Id` int(11) NOT NULL,
   `Uren_Gewenst` int(11) NOT NULL,
   `Uren_Effectief` int(11) NOT NULL,
-  `Karttrekker` tinyint(1) NOT NULL
+  `Karttrekker` tinyint(1) NOT NULL,
+  `Omschrijving` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `expertisegroep`
+-- Dumping data for table `expertisegroep`
 --
 
-INSERT INTO `expertisegroep` (`Expertisegroep_Id`, `Expertise_Id`, `Uren_Gewenst`, `Uren_Effectief`, `Karttrekker`) VALUES
-(3, 3, 13, 13, 1),
-(4, 2, 14, 14, 1);
+INSERT INTO `expertisegroep` (`Expertisegroep_Id`, `Expertise_Id`, `Uren_Gewenst`, `Uren_Effectief`, `Karttrekker`, `Omschrijving`) VALUES
+(3, 3, 13, 13, 1, NULL),
+(4, 2, 14, 14, 1, 'Oeiasa'),
+(13, 3, 0, 0, 0, '');
 
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `expertisegroep_persoon`
+-- Table structure for table `expertisegroep_persoon`
 --
 
 CREATE TABLE `expertisegroep_persoon` (
@@ -95,18 +97,18 @@ CREATE TABLE `expertisegroep_persoon` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `expertisegroep_persoon`
+-- Dumping data for table `expertisegroep_persoon`
 --
 
 INSERT INTO `expertisegroep_persoon` (`Expertisegroep_Persoon_Id`, `Expertisegroep_Id`, `Pers_Id`) VALUES
 (1, 3, 1),
-(2, 3, 2),
-(3, 4, 2);
+(8, 13, 4),
+(9, 13, 1);
 
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `persoon`
+-- Table structure for table `persoon`
 --
 
 CREATE TABLE `persoon` (
@@ -125,19 +127,18 @@ CREATE TABLE `persoon` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `persoon`
+-- Dumping data for table `persoon`
 --
 
 INSERT INTO `persoon` (`Pers_Id`, `Voornaam`, `Achternaam`, `Email`, `Wachtwoord`, `Salt`, `Adres`, `Postcode`, `Plaats`, `Land`, `Uren_per_week`, `Loon`) VALUES
 (1, 'Stefan', 'Teunissen', 'stefanteunissen@gmail.com', 'pizza', 'pizza', 'Slinger 45', '6641DH', 'Nijmegen', 'Ierland', 40, '5000.40'),
-(2, 'Thomas', 'van Minnen', 'thomasminnie@gmail.com', 'thomas', 'thomas', 'Thomas Edison 45', '8736OK', 'Apeldoorn', 'Israel', 2, '200.00'),
 (3, 'Nino', 'Perez Vazquez', 'n.aino@hotmail.uk', '$2y$10$yruKZQ/9U72MwpxEUI2UwOAv1SqIGHz/2kKfMGVJa3VMtGWB5TssS', '', 'Mast 10', '6852 CG', 'Huissen', 'Spanje', 69, '420.00'),
 (4, 'Thomas', 'Van Minnen', 'thomasminnie@gmail.com', '$2y$10$Tba0qw/sY2j0SVvkDdofVuvdP2N96qc8GzUw7xslfiWuliA08YScO', '', 'Negerstraat 69', '6666EE', 'Kronenburg', 'Italie', 8, '420.00');
 
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `persoon_skills_ervaring`
+-- Table structure for table `persoon_skills_ervaring`
 --
 
 CREATE TABLE `persoon_skills_ervaring` (
@@ -148,17 +149,16 @@ CREATE TABLE `persoon_skills_ervaring` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `persoon_skills_ervaring`
+-- Dumping data for table `persoon_skills_ervaring`
 --
 
 INSERT INTO `persoon_skills_ervaring` (`Persoon_Skills_Ervaring_Id`, `Pers_Id`, `Skills_Id`, `Ervaring_Id`) VALUES
-(1, 1, 3, 1),
-(2, 2, 3, 2);
+(1, 1, 3, 1);
 
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `project`
+-- Table structure for table `project`
 --
 
 CREATE TABLE `project` (
@@ -174,7 +174,7 @@ CREATE TABLE `project` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `project`
+-- Dumping data for table `project`
 --
 
 INSERT INTO `project` (`Project_Id`, `Naam`, `Owner`, `Organization`, `Phone`, `Email`, `Startdatum`, `Deadline`, `Prijs`) VALUES
@@ -183,7 +183,7 @@ INSERT INTO `project` (`Project_Id`, `Naam`, `Owner`, `Organization`, `Phone`, `
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `projectdetail`
+-- Table structure for table `projectdetail`
 --
 
 CREATE TABLE `projectdetail` (
@@ -194,7 +194,7 @@ CREATE TABLE `projectdetail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `projectdetail`
+-- Dumping data for table `projectdetail`
 --
 
 INSERT INTO `projectdetail` (`ProjectDetail_Id`, `Project_Id`, `Expertise_Id`, `Totaal_aantal_uren`) VALUES
@@ -203,7 +203,7 @@ INSERT INTO `projectdetail` (`ProjectDetail_Id`, `Project_Id`, `Expertise_Id`, `
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `projectdetail_skills`
+-- Table structure for table `projectdetail_skills`
 --
 
 CREATE TABLE `projectdetail_skills` (
@@ -214,7 +214,7 @@ CREATE TABLE `projectdetail_skills` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `projectdetail_skills`
+-- Dumping data for table `projectdetail_skills`
 --
 
 INSERT INTO `projectdetail_skills` (`ProjectDetail_Skills_Id`, `ProjectDetail_Id`, `Skill_Id`, `Aantal_uren`) VALUES
@@ -223,7 +223,7 @@ INSERT INTO `projectdetail_skills` (`ProjectDetail_Skills_Id`, `ProjectDetail_Id
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `skill`
+-- Table structure for table `skill`
 --
 
 CREATE TABLE `skill` (
@@ -234,7 +234,7 @@ CREATE TABLE `skill` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `skill`
+-- Dumping data for table `skill`
 --
 
 INSERT INTO `skill` (`Skill_Id`, `Expertise_Id`, `Omschrijving`, `Prijs`) VALUES
@@ -242,30 +242,30 @@ INSERT INTO `skill` (`Skill_Id`, `Expertise_Id`, `Omschrijving`, `Prijs`) VALUES
 (3, 2, 'HTML/CSS', '50.00');
 
 --
--- Indexen voor geëxporteerde tabellen
+-- Indexes for dumped tables
 --
 
 --
--- Indexen voor tabel `ervaring`
+-- Indexes for table `ervaring`
 --
 ALTER TABLE `ervaring`
   ADD PRIMARY KEY (`Ervaring_Id`);
 
 --
--- Indexen voor tabel `expertise`
+-- Indexes for table `expertise`
 --
 ALTER TABLE `expertise`
   ADD PRIMARY KEY (`Expertise_Id`);
 
 --
--- Indexen voor tabel `expertisegroep`
+-- Indexes for table `expertisegroep`
 --
 ALTER TABLE `expertisegroep`
   ADD PRIMARY KEY (`Expertisegroep_Id`),
   ADD KEY `Expertise_Id` (`Expertise_Id`);
 
 --
--- Indexen voor tabel `expertisegroep_persoon`
+-- Indexes for table `expertisegroep_persoon`
 --
 ALTER TABLE `expertisegroep_persoon`
   ADD PRIMARY KEY (`Expertisegroep_Persoon_Id`),
@@ -273,13 +273,13 @@ ALTER TABLE `expertisegroep_persoon`
   ADD KEY `Pers_Id` (`Pers_Id`);
 
 --
--- Indexen voor tabel `persoon`
+-- Indexes for table `persoon`
 --
 ALTER TABLE `persoon`
   ADD PRIMARY KEY (`Pers_Id`);
 
 --
--- Indexen voor tabel `persoon_skills_ervaring`
+-- Indexes for table `persoon_skills_ervaring`
 --
 ALTER TABLE `persoon_skills_ervaring`
   ADD PRIMARY KEY (`Persoon_Skills_Ervaring_Id`),
@@ -288,14 +288,14 @@ ALTER TABLE `persoon_skills_ervaring`
   ADD KEY `Ervaring_Id` (`Ervaring_Id`);
 
 --
--- Indexen voor tabel `project`
+-- Indexes for table `project`
 --
 ALTER TABLE `project`
   ADD PRIMARY KEY (`Project_Id`),
   ADD KEY `Owner` (`Owner`);
 
 --
--- Indexen voor tabel `projectdetail`
+-- Indexes for table `projectdetail`
 --
 ALTER TABLE `projectdetail`
   ADD PRIMARY KEY (`ProjectDetail_Id`),
@@ -303,7 +303,7 @@ ALTER TABLE `projectdetail`
   ADD KEY `Expertise` (`Expertise_Id`);
 
 --
--- Indexen voor tabel `projectdetail_skills`
+-- Indexes for table `projectdetail_skills`
 --
 ALTER TABLE `projectdetail_skills`
   ADD PRIMARY KEY (`ProjectDetail_Skills_Id`),
@@ -311,95 +311,95 @@ ALTER TABLE `projectdetail_skills`
   ADD KEY `Skill` (`Skill_Id`);
 
 --
--- Indexen voor tabel `skill`
+-- Indexes for table `skill`
 --
 ALTER TABLE `skill`
   ADD PRIMARY KEY (`Skill_Id`),
   ADD KEY `Expertise_Id` (`Expertise_Id`);
 
 --
--- AUTO_INCREMENT voor geëxporteerde tabellen
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT voor een tabel `ervaring`
+-- AUTO_INCREMENT for table `ervaring`
 --
 ALTER TABLE `ervaring`
   MODIFY `Ervaring_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT voor een tabel `expertise`
+-- AUTO_INCREMENT for table `expertise`
 --
 ALTER TABLE `expertise`
   MODIFY `Expertise_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT voor een tabel `expertisegroep`
+-- AUTO_INCREMENT for table `expertisegroep`
 --
 ALTER TABLE `expertisegroep`
-  MODIFY `Expertisegroep_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Expertisegroep_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT voor een tabel `expertisegroep_persoon`
+-- AUTO_INCREMENT for table `expertisegroep_persoon`
 --
 ALTER TABLE `expertisegroep_persoon`
-  MODIFY `Expertisegroep_Persoon_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Expertisegroep_Persoon_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT voor een tabel `persoon`
+-- AUTO_INCREMENT for table `persoon`
 --
 ALTER TABLE `persoon`
   MODIFY `Pers_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT voor een tabel `persoon_skills_ervaring`
+-- AUTO_INCREMENT for table `persoon_skills_ervaring`
 --
 ALTER TABLE `persoon_skills_ervaring`
   MODIFY `Persoon_Skills_Ervaring_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT voor een tabel `project`
+-- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
   MODIFY `Project_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT voor een tabel `projectdetail`
+-- AUTO_INCREMENT for table `projectdetail`
 --
 ALTER TABLE `projectdetail`
   MODIFY `ProjectDetail_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT voor een tabel `projectdetail_skills`
+-- AUTO_INCREMENT for table `projectdetail_skills`
 --
 ALTER TABLE `projectdetail_skills`
   MODIFY `ProjectDetail_Skills_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT voor een tabel `skill`
+-- AUTO_INCREMENT for table `skill`
 --
 ALTER TABLE `skill`
   MODIFY `Skill_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Beperkingen voor geëxporteerde tabellen
+-- Constraints for dumped tables
 --
 
 --
--- Beperkingen voor tabel `expertisegroep`
+-- Constraints for table `expertisegroep`
 --
 ALTER TABLE `expertisegroep`
   ADD CONSTRAINT `expertisegroep_ibfk_1` FOREIGN KEY (`Expertise_Id`) REFERENCES `expertise` (`Expertise_Id`);
 
 --
--- Beperkingen voor tabel `expertisegroep_persoon`
+-- Constraints for table `expertisegroep_persoon`
 --
 ALTER TABLE `expertisegroep_persoon`
   ADD CONSTRAINT `expertisegroep_persoon_ibfk_1` FOREIGN KEY (`Expertisegroep_Id`) REFERENCES `expertisegroep` (`Expertisegroep_Id`),
   ADD CONSTRAINT `expertisegroep_persoon_ibfk_2` FOREIGN KEY (`Pers_Id`) REFERENCES `persoon` (`Pers_Id`);
 
 --
--- Beperkingen voor tabel `persoon_skills_ervaring`
+-- Constraints for table `persoon_skills_ervaring`
 --
 ALTER TABLE `persoon_skills_ervaring`
   ADD CONSTRAINT `persoon_skills_ervaring_ibfk_1` FOREIGN KEY (`Pers_Id`) REFERENCES `persoon` (`Pers_Id`),
@@ -407,27 +407,27 @@ ALTER TABLE `persoon_skills_ervaring`
   ADD CONSTRAINT `persoon_skills_ervaring_ibfk_3` FOREIGN KEY (`Ervaring_Id`) REFERENCES `ervaring` (`Ervaring_Id`);
 
 --
--- Beperkingen voor tabel `project`
+-- Constraints for table `project`
 --
 ALTER TABLE `project`
   ADD CONSTRAINT `Owner` FOREIGN KEY (`Owner`) REFERENCES `persoon` (`Pers_Id`);
 
 --
--- Beperkingen voor tabel `projectdetail`
+-- Constraints for table `projectdetail`
 --
 ALTER TABLE `projectdetail`
   ADD CONSTRAINT `Expertise` FOREIGN KEY (`Expertise_Id`) REFERENCES `expertise` (`Expertise_Id`),
   ADD CONSTRAINT `Project` FOREIGN KEY (`Project_Id`) REFERENCES `project` (`Project_Id`);
 
 --
--- Beperkingen voor tabel `projectdetail_skills`
+-- Constraints for table `projectdetail_skills`
 --
 ALTER TABLE `projectdetail_skills`
   ADD CONSTRAINT `ProjectDetail` FOREIGN KEY (`ProjectDetail_Id`) REFERENCES `projectdetail` (`ProjectDetail_Id`),
   ADD CONSTRAINT `Skill` FOREIGN KEY (`Skill_Id`) REFERENCES `skill` (`Skill_Id`);
 
 --
--- Beperkingen voor tabel `skill`
+-- Constraints for table `skill`
 --
 ALTER TABLE `skill`
   ADD CONSTRAINT `skill_ibfk_1` FOREIGN KEY (`Expertise_Id`) REFERENCES `expertise` (`Expertise_Id`);
