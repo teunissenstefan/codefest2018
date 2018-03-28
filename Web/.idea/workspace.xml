@@ -34,11 +34,9 @@
       <file leaf-file-name="adminmenu.inc.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/adminmenu.inc.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="37" column="26" lean-forward="false" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="490">
+              <caret line="40" column="26" lean-forward="false" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -53,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="skillsbeheerdelete.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="skillsbeheerdelete.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/skillsbeheerdelete.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="23" column="18" lean-forward="false" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+            <state relative-caret-position="483">
+              <caret line="23" column="33" lean-forward="true" selection-start-line="21" selection-start-column="7" selection-end-line="23" selection-end-column="33" />
               <folding>
                 <marker date="1522268076457" expanded="true" signature="26:93" ph="DELETE FROM skill" />
                 <marker date="1522268076457" expanded="true" signature="26:114" ph="DELETE FROM skill" />
@@ -68,14 +66,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="expertisegroependelete.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/expertisegroependelete.php">
+      <file leaf-file-name="skillsbeheeredit.inc.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/skillsbeheeredit.inc.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="3" column="35" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="35" />
+            <state relative-caret-position="0">
+              <caret line="0" column="5" lean-forward="true" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
               <folding>
-                <marker date="1522239304857" expanded="true" signature="30:138" ph="DELETE FROM expertisegroep_persoon" />
-                <marker date="1522239304857" expanded="true" signature="408:508" ph="DELETE FROM expertisegroep" />
+                <marker date="1522269420152" expanded="true" signature="2782:2915" ph="SELECT * FRO... persoon" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="skillsbeheeredit.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/php/skillsbeheeredit.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="101" column="4" lean-forward="false" selection-start-line="101" selection-start-column="4" selection-end-line="101" selection-end-column="4" />
+              <folding>
+                <marker date="1522272101918" expanded="true" signature="82:166" ph="SELECT * FRO... projectdetail_skills" />
+                <marker date="1522272101918" expanded="true" signature="398:497" ph="SELECT * FRO... persoon_skills_ervaring" />
+                <marker date="1522272101918" expanded="true" signature="709:809" ph="SELECT * FRO... persoon_skills_ervaring" />
+                <marker date="1522272101918" expanded="true" signature="1096:1158" ph="SELECT * FRO... skill" />
+                <marker date="1522272101918" expanded="true" signature="2433:2661" ph="UPDATE expertisegroep... " />
+                <marker date="1522272101918" expanded="true" signature="3494:3600" ph="DELETE FROM expertisegroep_persoon... " />
+                <marker date="1522272101918" expanded="true" signature="4057:4172" ph="INSERT INTO expertisegroep_persoon... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="expertisegroepenedit.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/expertisegroepenedit.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-609">
+              <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+              <folding>
+                <marker date="1522268771684" expanded="true" signature="82:172" ph="SELECT * FRO... expertisegroep" />
+                <marker date="1522268771684" expanded="true" signature="420:482" ph="SELECT * FRO... persoon" />
+                <marker date="1522268771684" expanded="true" signature="704:795" ph="SELECT * FRO... expertisegroep_persoon" />
+                <marker date="1522268771684" expanded="true" signature="1096:1162" ph="SELECT * FRO... expertise" />
+                <marker date="1522268771684" expanded="true" signature="2528:2756" ph="UPDATE expertisegroep... " />
+                <marker date="1522268771684" expanded="true" signature="3617:3723" ph="DELETE FROM expertisegroep_persoon... " />
+                <marker date="1522268771684" expanded="true" signature="4187:4302" ph="INSERT INTO expertisegroep_persoon... " />
               </folding>
             </state>
           </provider>
@@ -104,6 +137,8 @@
         <option value="$PROJECT_DIR$/includes/adminmenu.inc.php" />
         <option value="$PROJECT_DIR$/includes/skillsbeheerdelete.inc.php" />
         <option value="$PROJECT_DIR$/php/skillsbeheerdelete.php" />
+        <option value="$PROJECT_DIR$/includes/skillsbeheeredit.inc.php" />
+        <option value="$PROJECT_DIR$/php/skillsbeheeredit.php" />
       </list>
     </option>
   </component>
@@ -205,12 +240,12 @@
       <option name="presentableId" value="Default" />
       <updated>1522224917532</updated>
       <workItem from="1522224918749" duration="3573000" />
-      <workItem from="1522258793777" duration="7394000" />
+      <workItem from="1522258793777" duration="9906000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22720000" />
+    <option name="totallyTimeSpent" value="25232000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -268,9 +303,9 @@
         <state relative-caret-position="0">
           <caret line="0" column="5" lean-forward="true" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
           <folding>
-            <marker date="1522239304808" expanded="true" signature="129:228" ph="..." />
-            <marker date="1522239304808" expanded="true" signature="129:382" ph="..." />
-            <marker date="1522239304808" expanded="true" signature="513:629" ph="SELECT * FRO... expertise" />
+            <marker date="1522268771622" expanded="true" signature="289:388" ph="..." />
+            <marker date="1522268771622" expanded="true" signature="289:542" ph="..." />
+            <marker date="1522268771622" expanded="true" signature="673:789" ph="SELECT * FRO... expertise" />
           </folding>
         </state>
       </provider>
@@ -298,7 +333,7 @@
         <state relative-caret-position="1281">
           <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
-            <marker date="1522263547689" expanded="true" signature="509:550" ph="SELECT * FRO... persoon" />
+            <marker date="1522268771684" expanded="true" signature="509:550" ph="SELECT * FRO... persoon" />
           </folding>
         </state>
       </provider>
@@ -316,9 +351,9 @@
         <state relative-caret-position="2751">
           <caret line="131" column="26" lean-forward="true" selection-start-line="131" selection-start-column="26" selection-end-line="131" selection-end-column="26" />
           <folding>
-            <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -327,9 +362,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
           <caret line="3" column="45" lean-forward="false" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -368,9 +401,9 @@
         <state relative-caret-position="2751">
           <caret line="131" column="26" lean-forward="true" selection-start-line="131" selection-start-column="26" selection-end-line="131" selection-end-column="26" />
           <folding>
-            <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -379,6 +412,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -395,8 +429,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="2" />
           <folding>
-            <marker date="1522251385732" expanded="true" signature="29:50" ph="SELECT * FRO... persoon" />
-            <marker date="1522251385732" expanded="true" signature="245:287" ph="SELECT * FRO... persoon" />
+            <marker date="1522268771700" expanded="true" signature="29:50" ph="SELECT * FRO... persoon" />
+            <marker date="1522268771700" expanded="true" signature="245:287" ph="SELECT * FRO... persoon" />
           </folding>
         </state>
       </provider>
@@ -414,7 +448,7 @@
         <state relative-caret-position="740">
           <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
-            <marker date="1522263547689" expanded="true" signature="509:550" ph="SELECT * FRO... persoon" />
+            <marker date="1522268771684" expanded="true" signature="509:550" ph="SELECT * FRO... persoon" />
           </folding>
         </state>
       </provider>
@@ -424,9 +458,9 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="49" selection-end-column="2" />
           <folding>
-            <marker date="1522239304808" expanded="true" signature="129:228" ph="..." />
-            <marker date="1522239304808" expanded="true" signature="129:382" ph="..." />
-            <marker date="1522239304808" expanded="true" signature="513:629" ph="SELECT * FRO... expertise" />
+            <marker date="1522268771622" expanded="true" signature="289:388" ph="..." />
+            <marker date="1522268771622" expanded="true" signature="289:542" ph="..." />
+            <marker date="1522268771622" expanded="true" signature="673:789" ph="SELECT * FRO... expertise" />
           </folding>
         </state>
       </provider>
@@ -462,14 +496,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="6" lean-forward="false" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -480,18 +506,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/adminmenu.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="37" column="26" lean-forward="false" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/skillsbeheerdelete.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+        <state relative-caret-position="490">
+          <caret line="40" column="26" lean-forward="false" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -515,15 +531,91 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/includes/expertisegroepenadd.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/expertisegroepenedit.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="94" selection-end-column="2" />
+          <folding>
+            <marker date="1522268771622" expanded="true" signature="2511:2644" ph="SELECT * FRO... persoon" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/skillsbeheeredit.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="5" lean-forward="true" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <folding>
+            <marker date="1522269420152" expanded="true" signature="2782:2915" ph="SELECT * FRO... persoon" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="6" lean-forward="false" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/skillsbeheerdelete.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/php/skillsbeheerdelete.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="23" column="18" lean-forward="false" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+        <state relative-caret-position="483">
+          <caret line="23" column="33" lean-forward="true" selection-start-line="21" selection-start-column="7" selection-end-line="23" selection-end-column="33" />
           <folding>
             <marker date="1522268076457" expanded="true" signature="26:93" ph="DELETE FROM skill" />
             <marker date="1522268076457" expanded="true" signature="26:114" ph="DELETE FROM skill" />
             <marker date="1522268076457" expanded="true" signature="321:413" ph="DELETE FROM persoon_skills_ervaring" />
             <marker date="1522268076457" expanded="true" signature="620:693" ph="DELETE FROM skill" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/expertisegroepenedit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-609">
+          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+          <folding>
+            <marker date="1522268771684" expanded="true" signature="82:172" ph="SELECT * FRO... expertisegroep" />
+            <marker date="1522268771684" expanded="true" signature="420:482" ph="SELECT * FRO... persoon" />
+            <marker date="1522268771684" expanded="true" signature="704:795" ph="SELECT * FRO... expertisegroep_persoon" />
+            <marker date="1522268771684" expanded="true" signature="1096:1162" ph="SELECT * FRO... expertise" />
+            <marker date="1522268771684" expanded="true" signature="2528:2756" ph="UPDATE expertisegroep... " />
+            <marker date="1522268771684" expanded="true" signature="3617:3723" ph="DELETE FROM expertisegroep_persoon... " />
+            <marker date="1522268771684" expanded="true" signature="4187:4302" ph="INSERT INTO expertisegroep_persoon... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/skillsbeheeredit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="101" column="4" lean-forward="false" selection-start-line="101" selection-start-column="4" selection-end-line="101" selection-end-column="4" />
+          <folding>
+            <marker date="1522272101918" expanded="true" signature="82:166" ph="SELECT * FRO... projectdetail_skills" />
+            <marker date="1522272101918" expanded="true" signature="398:497" ph="SELECT * FRO... persoon_skills_ervaring" />
+            <marker date="1522272101918" expanded="true" signature="709:809" ph="SELECT * FRO... persoon_skills_ervaring" />
+            <marker date="1522272101918" expanded="true" signature="1096:1158" ph="SELECT * FRO... skill" />
+            <marker date="1522272101918" expanded="true" signature="2433:2661" ph="UPDATE expertisegroep... " />
+            <marker date="1522272101918" expanded="true" signature="3494:3600" ph="DELETE FROM expertisegroep_persoon... " />
+            <marker date="1522272101918" expanded="true" signature="4057:4172" ph="INSERT INTO expertisegroep_persoon... " />
           </folding>
         </state>
       </provider>
