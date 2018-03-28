@@ -1,3 +1,6 @@
+<?php
+	if (isset($_SESSION['loggedIn'])) {
+?>
 <div class="row">
     <div class="col s4" style="text-align:center;">
         <a href="?page=medewerkerbeheer">
@@ -44,3 +47,7 @@
 </div>
 
 <div class="clearfix"></div>
+
+<?php
+	}
+?>

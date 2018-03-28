@@ -1,8 +1,8 @@
 <?php
 require_once("functions/connect.php");
-
+session_start();
 if(isset($_GET['page'])){
-    $page = $_GET['page'];
+	$page = $_GET['page'];
 }else{
     $page = "login";
 }
@@ -33,7 +33,17 @@ if(isset($_GET['page'])){
 		    <nav>
 			<div class="nav-wrapper z-depth-2" style= "background-color: var(--garnet);">
 			    <b><a href="index.php" class="brand-logo">Environment.Exit();</a></b>
+				<?php
+				if (isset ($_SESSION['loggedIn'])) {
+				?>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="php/logout.php">Logout</a></li>
+				</ul>
+				<?php
+				}
+				?>
 			</div>
+			
 		    </nav>
 		</div>
 		<script>
