@@ -22,24 +22,34 @@ if(isset($_GET['page'])){
 	<body>
 		<div class="navbar-fixed">
 		    <nav>
-			<div class="nav-wrapper z-depth-2" style= "background-color: var(--garnet);">
-			    <b><a href="index.php" class="brand-logo">Environment.Exit();</a></b>
-				<?php
-				if (isset ($_SESSION['loggedIn'])) {
-				?>
-				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a href="php/logout.php">Logout</a></li>
-				</ul>
-				<?php
-				}
-				?>
-			</div>
-			
+				<div class="nav-wrapper z-depth-2" style= "background-color: var(--garnet);">
+					<b><a href="index.php" class="brand-logo">Environment.Exit();</a></b>
+					<?php
+					if (isset ($_SESSION['loggedIn'])) {
+					?>
+					<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+					<ul class="right hide-on-med-and-down">
+						<li><a href="php/logout.php">Logout</a></li>
+					</ul>
+					<?php
+					}
+					?>
+				</div>
 		    </nav>
 		</div>
+		<ul class="side-nav" id="mobile-demo">
+			<?php
+			if (isset ($_SESSION['loggedIn'])) {
+			?>
+			<li><a href="php/logout.php">Logout</a></li>
+			<?php
+			}
+			?>
+		</ul>
 		<script>
 		$(document).ready(function(){
 		    $(".button-collapse").sideNav();
+			//$('.sidenav').sidenav();
 			$('select').material_select();
 		});
 		</script>
