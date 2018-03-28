@@ -9,27 +9,21 @@
         $land = $_POST['land'];
         $upw = $_POST['upw'];
         $loon = $_POST['loon'];
-		$pass = $passhas = hash($algo , $_POST['pass'] + $salt);
+		$pass = $_POST['pass'];
+		$hashpws = password_hash($pass, PASSWORD_DEFAULT);
 
-        function generateRandomString($length = 10) {
-            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            $charactersLength = strlen($characters);
-            $salt = '';
-            for ($i = 0; $i < $length; $i++) {
-                $salt .= $characters[rand(0, $charactersLength - 1)];
-            }
-        }
-        $sth = $con->prepare("INSERT INTO persoon(Pers_Id, Voornaam, Achternaam, Email, Wachtwoord, Salt, Adres, Postcode, Plaats, Land, Uren_per_week, Loon) VALUES (:voornaam,:achternaam,:email,:wachtwoord,:salt,:adres,:postcode,:plaats,:land,:uren_per_week,:loon)");
+        $sth = $con->prepare("INSERT INTO persoon (Voornaam, Achternaam, Email, Wachtwoord, Adres, Postcode, Plaats, Land, Uren_per_week, Loon) VALUES (:voornaam,:achternaam,:email,:wachtwoord,:adres,:postcode,:city,:land,:uren_per_week,:loon)");
         $sth->bindParam(":voornaam", $fname);
         $sth->bindParam(":achternaam", $lname);
         $sth->bindParam(":email", $email);
-        $sth->bindParam(":salt", $salt);
+        $sth->bindParam(":wachtwoord", $hashpws);
         $sth->bindParam(":adres", $adres);
-        $sth->bindParam(":post", $post);
+        $sth->bindParam(":postcode", $post);
         $sth->bindParam(":city", $city);
         $sth->bindParam(":land", $land);
         $sth->bindParam(":uren_per_week", $upw);
         $sth->bindParam(":loon", $loon);
         $sth->execute();
+		header("Location: ?page=medewerkerbeheer");
     }
 ?>

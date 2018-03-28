@@ -32,7 +32,7 @@ if(isset($_GET['page'])){
 		<div class="navbar-fixed">
 		    <nav>
 			<div class="nav-wrapper z-depth-2" style= "background-color: var(--garnet);">
-			    <b><a href="index.php?page=index" class="brand-logo">Environment.Exit();</a></b>
+			    <b><a href="index.php" class="brand-logo">Environment.Exit();</a></b>
 			</div>
 		    </nav>
 		</div>

@@ -1,4 +1,4 @@
-<form class='row' action="php/adduser.php">
+<form class='row' action="?page=adduser" method="Post">
     <div class='col s12 l2'>
 		<ul>
 			<li><img src="images/profile.png" width="240px" height="200px"></i>
@@ -26,7 +26,7 @@
 			<li><input type="text" name="upw" placeholder="Uren"></li>
 			<li><b>Loon:</b></li>
 			<li><input type="text" name="loon" placeholder="Loon"></li>
-			<li><input type="submit" value="edit"></li>
+			<li><input type="submit" name="submit" value="edit"></li>
 		</ul>
 	</div>
 </form>
