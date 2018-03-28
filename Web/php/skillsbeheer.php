@@ -3,8 +3,6 @@ $query = "
         SELECT 
             *
         FROM skill
-        ORDER BY
-             Skill_Id DESC
     ";
 
 

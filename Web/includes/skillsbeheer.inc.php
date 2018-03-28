@@ -6,9 +6,9 @@ if($aantalGroepen == 0){
     echo "<div class='row rowHeader'>
             <div class='col s1'>ID</div>
             <div class='col s2'>Expertise</div>
-            <div class='col s2'>Uren gewenst</div>
-            <div class='col s2'>Uren Effectief</div>
-            <div class='col s2'>Acties</div>
+            <div class='col s2'>Omschrijving</div>
+            <div class='col s2'>Prijs</div>
+            <div class='col s2'>Actie</div>
         </div>";
     foreach($expertiseGroepen as $expertiseGroep){
         echo "<div class='row'>";
@@ -38,11 +38,11 @@ if($aantalGroepen == 0){
         }
 
 
-        echo "<div class='col s1'>".$expertiseGroep['Expertisegroep_Id']."</div>";
+        echo "<div class='col s1'>".$expertiseGroep['Skill_Id']."</div>";
         echo "<div class='col s2'>".$expertise."</div>";
-        echo "<div class='col s2'>".$expertiseGroep['Uren_Gewenst']."</div>";
-        echo "<div class='col s2'>".$expertiseGroep['Uren_Effectief']."</div>";
-        echo "<div class='col s2'><a href='?page=expertisegroepenedit&id=".$expertiseGroep['Expertisegroep_Id']."'>Bewerk</a> / <a href='?page=expertisegroependelete&id=".$expertiseGroep['Expertisegroep_Id']."'>Verwijder</a></div>";
+        echo "<div class='col s2'>".$expertiseGroep['Omschrijving']."</div>";
+        echo "<div class='col s2'>".$expertiseGroep['Prijs']."</div>";
+        echo "<div class='col s2'><a href='?page=skillsbeheeredit&id=".$expertiseGroep['Skill_Id']."'>Bewerk</a> / <a href='?page=skillsbeheerdelete&id=".$expertiseGroep['Skill_Id']."'>Verwijder</a></div>";
 
         echo "</div>";
     }
