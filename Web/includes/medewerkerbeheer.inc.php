@@ -1,6 +1,8 @@
 <?php
 	if (isset($_SESSION['loggedIn'])) {
 ?>
+<a href="?page=medewerkerbeheer">
+</a>
 <br>
 <br>
 <div class='row rowHeader'>
@@ -33,7 +35,18 @@
 					<?php echo $user[6]; ?>
 				</div>
 				<div class='col s12 l2'>
-					<a href='?page=medewerkerbeheer&edit=false&uid=<?php echo $user[0]; ?>'>
+				<?php
+					if (isset ($_GET['uid']) && isset ($_GET['edit'])) {
+				?>
+						<a href='?page=medewerkerbeheer'>
+				<?php
+					}
+					else {
+					?>
+						<a href='?page=medewerkerbeheer&edit=false&uid=<?php echo $user[0]; ?>'>
+					<?php
+					}
+				?>
 						<img src='images/dash.png' width='40px'>
 					</a>
 				</div>
