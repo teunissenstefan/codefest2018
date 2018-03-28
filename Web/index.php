@@ -22,55 +22,11 @@
 	<body>
 		<div class="navbar-fixed">
 		    <nav>
-			<div class="nav-wrapper red darken-4 z-depth-2">
+			<div class="nav-wrapper z-depth-2" style= "background-color: #8b0000;">
 			    <b><a href="index.php?page=index" class="brand-logo">Environment.Exit();</a></b>
-			    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-			    <ul id="nav-mobile" class="right hide-on-med-and-down">
-			    <?php
-				$link_prefix = "?page=";
-
-				$navbar = array(
-				        array("index", "Home"),
-				        array("link", "link"),
-				        array("link", "link"),
-				        array("link", "link")
-				);
-				echo '';
-				for($i=0;$i<count($navbar);$i++){
-				    echo '<li class="';
-				    if($page==$navbar[$i][0]){
-				        echo "active";
-				    }
-				    echo'
-				        "><b><a style="" href="'.$link_prefix.$navbar[$i][0].'">'.$navbar[$i][1].'</a></b></li>
-				    ';
-				}
-			    ?>
-			    </ul>
 			</div>
 		    </nav>
 		</div>
-		<ul class="side-nav" id="mobile-demo">
-		<?php
-		    $navbar = array(
-			    array("index", "Home", "home"),
-			    array("about", "About Us", "info"),
-			    array("prices", "Prices", "shop"),
-			    array("portfolio", "Portfolio", "description"),
-		    );
-		    echo '';
-		    for($i=0;$i<count($navbar);$i++){
-			echo '<li class="';
-			if($page==$navbar[$i][0]){
-			    echo "active";
-			}
-			echo'
-			    "><a href="'.$link_prefix.$navbar[$i][0].'"><i class="small material-icons">'.$navbar[$i][2].'</i>'.$navbar[$i][1].'</a></li>
-			';
-		    }
-		?>
-		</ul>
-
 		<script>
 		$(document).ready(function(){
 		    $(".button-collapse").sideNav();
@@ -79,7 +35,7 @@
 		<div class="container">
 		    asodj
 		</div>
-		<footer class="page-footer red darken-4">
+		<footer class="page-footer" style= "background-color: #8b0000;"">
 		    <div class="container">
 			<div class="row">
 			    <div class="col l6 s12">
