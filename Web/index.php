@@ -41,7 +41,7 @@ if(isset($_GET['page'])){
 		    $(".button-collapse").sideNav();
 		});
 		</script>
-		<div class="container">
+		<div class="container content">
 		    <?php
 			if(is_file("php/".$page.".php")){
 		        include_once("php/".$page.".php");
