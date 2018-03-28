@@ -1,3 +1,6 @@
+:root{
+    --garnet:#8b0000;
+}
 .disable-selection{
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -6,4 +9,7 @@
 }
 .content{
     padding-top:10px;
+}
+.rowHeader{
+    border-bottom:1px solid var(--garnet);
 }

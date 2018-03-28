@@ -6,6 +6,9 @@ if($aantalGroepen == 0){
     echo "<div class='row rowHeader'>
             <div class='col s1'>ID</div>
             <div class='col s2'>Expertise</div>
+            <div class='col s2'>Uren gewenst</div>
+            <div class='col s2'>Uren Effectief</div>
+            <div class='col s2'>Acties</div>
         </div>";
     foreach($expertiseGroepen as $expertiseGroep){
         echo "<div class='row'>";
@@ -13,10 +16,10 @@ if($aantalGroepen == 0){
         $expertiseQuery = " 
             SELECT 
                 *
-            FROM Expertise
+            FROM expertise
             WHERE 
                 Expertise_Id = :Expertise_Id
-        "; 
+        ";
         try 
         { 
             $stmt = $con->prepare($expertiseQuery); 
@@ -37,6 +40,9 @@ if($aantalGroepen == 0){
 
         echo "<div class='col s1'>".$expertiseGroep['Expertisegroep_Id']."</div>";
         echo "<div class='col s2'>".$expertise."</div>";
+        echo "<div class='col s2'>".$expertiseGroep['Uren_Gewenst']."</div>";
+        echo "<div class='col s2'>".$expertiseGroep['Uren_Effectief']."</div>";
+        echo "<div class='col s2'><a href='?page=expertisegroepenedit&id=".$expertiseGroep['Expertisegroep_Id']."'>Bewerk</a> / <a href='?page=expertisegroependelete&id=".$expertiseGroep['Expertisegroep_Id']."'>Verwijder</a></div>";
 
         echo "</div>";
     }

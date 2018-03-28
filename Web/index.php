@@ -31,7 +31,7 @@ if(isset($_GET['page'])){
 	<body>
 		<div class="navbar-fixed">
 		    <nav>
-			<div class="nav-wrapper z-depth-2" style= "background-color: #8b0000;">
+			<div class="nav-wrapper z-depth-2" style= "background-color: var(--garnet);">
 			    <b><a href="index.php?page=index" class="brand-logo">Environment.Exit();</a></b>
 			</div>
 		    </nav>

@@ -2,7 +2,7 @@
     $query = " 
         SELECT 
             *
-        FROM Expertisegroep
+        FROM expertisegroep
         ORDER BY
             Expertisegroep_Id DESC
     ";
