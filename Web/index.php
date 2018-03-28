@@ -1,4 +1,6 @@
 <?php
+require_once("functions/connect.php");
+
 if(isset($_GET['page'])){
     $page = $_GET['page'];
 }else{
@@ -24,14 +26,12 @@ if(isset($_GET['page'])){
 		<!--Import jQuery before materialize.js-->
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
-		<script type="text/javascript" src="http://localhost/popup/jquery/jquery.js"></script>
-		<script type="text/javascript" src="http://localhost/popup/popup-window.js"></script>
-		<title>Example</title>
+		<title>Infocaster</title>
 	</head>
 	<body>
 		<div class="navbar-fixed">
 		    <nav>
-			<div class="nav-wrapper z-depth-2" style= "background-color: #8b0000;">
+			<div class="nav-wrapper z-depth-2" style= "background-color: var(--garnet);">
 			    <b><a href="index.php?page=index" class="brand-logo">Environment.Exit();</a></b>
 			</div>
 		    </nav>
@@ -41,13 +41,16 @@ if(isset($_GET['page'])){
 		    $(".button-collapse").sideNav();
 		});
 		</script>
-		<div class="container">
+		<div class="container content">
 		    <?php
-			include_once("functions/connect.php");
-			
+			if(is_file("php/".$page.".php")){
+		        include_once("php/".$page.".php");
+            }
 		    if(is_file("includes/".$page.".inc.php")){
 		        include_once("includes/".$page.".inc.php");
-            }
+            }else{
+				echo "Pagina niet gevonden";
+			}
 
 		    ?>
 		</div>
