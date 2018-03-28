@@ -14,6 +14,8 @@
 			<li><?php echo $user[1]; echo "  "; echo $user[2]; ?></li>
 			<li><b>Adress:</b></li>
 			<li><?php echo $user[6]; ?></li>
+			<li><b>Land:</b></li>
+			<li><?php echo $user[9]; ?></li>
 			<li><b>Woonplaats:</b></li>
 			<li><?php echo $user[9]; ?></li>
 			<li><b>Uren:</b></li>

@@ -1,6 +1,10 @@
 <br>
 <br>
-<span>
+<div class='col s12 l2' style="float: right;">
+	<a href='?page=medewerkerbeheer&edit=true'>
+		<img src='images/circel.png' width='40px'>
+	</a>
+</div>
 <?php
 	foreach($users as $user) {
 		?>
@@ -15,19 +19,14 @@
 			</div>
             <div class='col s12 l2'>
 				<a href='?page=medewerkerbeheer&edit=false&uid=<?php echo $user[0]; ?>'>
-					<img src='images/dash.png' width='40px' heigth='40px'>
-				</a>
-			</div>
-            <div class='col s12 l2'>
-				<a href='?page=medewerkerbeheer&edit=true&uid=<?php echo $user[0]; ?>'>
-					<img src='images/circel.png' width='40px' heigth='40px'>
+					<img src='images/dash.png' width='40px'>
 				</a>
 			</div>
         </div>
 		<?php
 	}
-	if(isset ($_GET['uid']) && isset ($_GET['edit'])) {
-		if ($_GET['edit'] == "false") {
+	if(isset ($_GET['edit'])) {
+		if (isset ($_GET['uid']) && $_GET['edit'] == "false") {
 			include ("includes/viewuser.inc.php");
 		}
 		else {
@@ -35,4 +34,3 @@
 		}
 	}
 ?>
-</span>
