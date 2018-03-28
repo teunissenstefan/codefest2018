@@ -5,7 +5,7 @@
 			<li><b>Username/E-mail:</b></li>
 			<li><input type="text" name="email" placeholder="Username/E-mail"></li>
 			<li><b>Password:</b></li>
-			<li><input type="text" name="pass" placeholder="Password>"></li>
+			<li><input type="text" name="pass" placeholder="Password"></li>
 			<li><b>Voornaam:</b></li>
 			<li><input type="text" name="fname" placeholder="Voornaam"></li>
 			<li><b>Achternaam:</b></li>
