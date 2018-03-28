@@ -6,9 +6,6 @@ try
 {
     $con = new PDO("mysql:host=localhost;dbname=infocaster",$DB_user,$DB_pass);
     $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-// $result = $sth->fetchAll();
-// print_r($result);
-
 }
 catch(PDOException $e)
 {

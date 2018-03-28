@@ -15,7 +15,13 @@ if(isset($_GET['page'])){
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<link rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css">
 		<link rel="stylesheet" href="css/main.css">
+<<<<<<< HEAD
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+=======
+
+		<!--Import jQuery before materialize.js-->
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+>>>>>>> a54320a21addc7d88676228944d52b55f636baa9
 		<script type="text/javascript" src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
 		<title>Infocaster</title>
 	</head>
@@ -23,7 +29,7 @@ if(isset($_GET['page'])){
 		<div class="navbar-fixed">
 		    <nav>
 			<div class="nav-wrapper z-depth-2" style= "background-color: var(--garnet);">
-			    <b><a href="index.php?page=index" class="brand-logo">Environment.Exit();</a></b>
+			    <b><a href="index.php" class="brand-logo">Environment.Exit();</a></b>
 			</div>
 		    </nav>
 		</div>
