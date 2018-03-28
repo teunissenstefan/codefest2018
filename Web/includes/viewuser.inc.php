@@ -12,12 +12,14 @@
 		<ul style="margin-left: 45px;">
 			<li><b>Naam:</b></li>
 			<li><?php echo $userg[1]; echo "  "; echo $userg[2]; ?></li>
+			<li><b>Postcode:</b></li>
+			<li><?php echo $userg[7]; ?></li>
 			<li><b>Adress:</b></li>
 			<li><?php echo $userg[6]; ?></li>
 			<li><b>Land:</b></li>
 			<li><?php echo $userg[9]; ?></li>
 			<li><b>Woonplaats:</b></li>
-			<li><?php echo $userg[9]; ?></li>
+			<li><?php echo $userg[8]; ?></li>
 			<li><b>Uren:</b></li>
 			<li><?php echo $userg[10]; ?></li>
 			<li><b>Loon:</b></li>

@@ -14,7 +14,7 @@
 		Adress
 	</div>
 	<div class='col s12 l2' style="float: right;">	
-		<a href='?page=medewerkerbeheer&edit=true'>
+		<a href='?page=medewerkerbeheer&add=true'>
 			<h5>+</h5>
 		</a>
 	</div>
@@ -37,6 +37,11 @@
 						<img src='images/dash.png' width='40px'>
 					</a>
 				</div>
+				<div class='col s12 l2'>
+					<a href='?page=medewerkerbeheer&edit=true&uid=<?php echo $user[0]; ?>'>
+						<img src='images/circel.png' width='40px'>
+					</a>
+				</div>
 			</div>
 			<?php
 		}
@@ -46,6 +51,11 @@
 			}
 			else {
 				include ("includes/edituser.inc.php");
+			}
+		}
+		elseif (isset ($_GET['add'])) {
+			if ($_GET['add'] == "true") {
+				include ("includes/adduser.inc.php");
 			}
 		}
 	}

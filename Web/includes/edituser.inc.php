@@ -1,31 +1,31 @@
-<form class='row' action="?page=adduser" method="Post">
+<form class='row' action="?page=edituser&uid=<?php echo $userg[0]; ?>" method="Post">
     <div class='col s12 l2'>
 		<ul>
 			<li><img src="images/profile.png" width="240px" height="200px"></i>
 			<li><b>Username/E-mail:</b></li>
-			<li><input type="text" name="email" placeholder="Username/E-mail"></li>
+			<li><input type="text" name="email" placeholder="<?php echo $userg[3]; ?>"></li>
 			<li><b>Password:</b></li>
-			<li><input type="text" name="pass" placeholder="Password"></li>
+			<li><input type="text" name="pass" placeholder="<?php echo $userg[4]; ?>"></li>
 			<li><b>Voornaam:</b></li>
-			<li><input type="text" name="fname" placeholder="Voornaam"></li>
+			<li><input type="text" name="fname" placeholder="<?php echo $userg[1]; ?>"></li>
 			<li><b>Achternaam:</b></li>
-			<li><input type="text" name="lname" placeholder="Achternaam"></li>
+			<li><input type="text" name="lname" placeholder="<?php echo $userg[2];; ?>"></li>
 		</ul>
 	</div>
 	<div class='col s12 l2'>
 		<ul style="margin-left: 45px;">
 			<li><b>Postcode:</b></li>
-			<li><input type="text" name="post" placeholder="Postcode"></li>
+			<li><input type="text" name="post" placeholder="<?php echo $userg[7]; ?>"></li>
 			<li><b>Adress:</b></li>
-			<li><input type="text" name="adr" placeholder="Adress"></li>
+			<li><input type="text" name="adr" placeholder="<?php echo $userg[6]; ?>"></li>
 			<li><b>Land:</b></li>
-			<li><input type="text" name="land" placeholder="Land">
+			<li><input type="text" name="land" placeholder="<?php echo $userg[9]; ?>">
 			</li><li><b>Woonplaats:</b></li>
-			<li><input type="text" name="city" placeholder="Woonplaats"></li>
+			<li><input type="text" name="city" placeholder="<?php echo $userg[8]; ?>"></li>
 			<li><b>Uren:</b></li>
-			<li><input type="text" name="upw" placeholder="Uren"></li>
+			<li><input type="text" name="upw" placeholder="<?php echo $userg[10]; ?>"></li>
 			<li><b>Loon:</b></li>
-			<li><input type="text" name="loon" placeholder="Loon"></li>
+			<li><input type="text" name="loon" placeholder="<?php echo $userg[11]; ?>"></li>
 			<li><input type="submit" name="submit" value="edit"></li>
 		</ul>
 	</div>
