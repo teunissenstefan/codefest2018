@@ -35,40 +35,6 @@
 		<div class="container">
 		    asodj
 		</div>
-		<footer class="page-footer" style= "background-color: #8b0000;"">
-		    <div class="container">
-			<div class="row">
-			    <div class="col l6 s12">
-				<h5 class="white-text">Footer Content</h5>
-				<p class="grey-text text-lighten-4">Footer dingen enzo.</p>
-			    </div>
-			    <div class="col l4 offset-l2 s12">
-				<h5 class="white-text">Links</h5>
-				<ul>
-				    <?php
-				        $links = array(
-				            array("index", "Home"),
-				            array("about", "About Us"),
-				            array("prices", "Prices"),
-				            array("portfolio", "Portfolio"),
-				        );
-				        echo '';
-				        for ($i=0;$i<count($links);$i++){
-				            echo'
-				                <li><a class="grey-text text-lighten-3" href="'.$links[$i][0].'">'.$links[$i][1].'</a></li>
-				            ';
-				        }
-				    ?>
-				</ul>
-			    </div>
-			</div>
-		    </div>
-		    <div class="footer-copyright">
-			<div class="container">
-			    Environment.Exit(); © 2018 Copyright
-			</div>
-		    </div>
-		</footer>
 	</body>
 </html>
             
