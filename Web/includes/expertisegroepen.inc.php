@@ -1,10 +1,10 @@
 <?php
+echo "<a href='?page=expertisegroepenadd'><button>Toevoegen</button></a> ";
+echo "<button onclick='window.location=window.location;'>Ververs</button>";
 if($aantalGroepen == 0){
-    echo "Er zijn geen groepen gevonden";
+    echo "<br/>Er zijn geen groepen gevonden";
 }else{
     //header
-    echo "<a href='?page=expertisegroepenadd'><button>Toevoegen</button></a> ";
-    echo "<button onclick='window.location=window.location;'>Ververs</button>";
     echo "<div class='row rowHeader'>
             <div class='col s1'>ID</div>
             <div class='col s2'>Expertise</div>

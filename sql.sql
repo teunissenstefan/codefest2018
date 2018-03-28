@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 28, 2018 at 11:59 PM
+-- Generation Time: Mar 29, 2018 at 01:43 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -38,8 +38,8 @@ CREATE TABLE `ervaring` (
 --
 
 INSERT INTO `ervaring` (`Ervaring_Id`, `Omschrijving`) VALUES
-(1, 'Heel erg goed'),
-(2, 'Kan wel');
+(3, 'Heel goed'),
+(4, 'Beetje');
 
 -- --------------------------------------------------------
 
@@ -57,8 +57,9 @@ CREATE TABLE `expertise` (
 --
 
 INSERT INTO `expertise` (`Expertise_Id`, `Omschrijving`) VALUES
-(2, 'Frontend'),
-(3, 'Design');
+(4, 'Frontend'),
+(5, 'Backend'),
+(6, 'Design');
 
 -- --------------------------------------------------------
 
@@ -80,9 +81,8 @@ CREATE TABLE `expertisegroep` (
 --
 
 INSERT INTO `expertisegroep` (`Expertisegroep_Id`, `Expertise_Id`, `Uren_Gewenst`, `Uren_Effectief`, `Karttrekker`, `Omschrijving`) VALUES
-(3, 3, 13, 13, 1, NULL),
-(4, 2, 14, 14, 1, 'Oeiasa'),
-(13, 3, 0, 0, 0, '');
+(15, 4, 40, 40, 1, 'test'),
+(16, 5, 12, 23, 0, 'asdasd');
 
 -- --------------------------------------------------------
 
@@ -101,9 +101,9 @@ CREATE TABLE `expertisegroep_persoon` (
 --
 
 INSERT INTO `expertisegroep_persoon` (`Expertisegroep_Persoon_Id`, `Expertisegroep_Id`, `Pers_Id`) VALUES
-(1, 3, 1),
-(8, 13, 4),
-(9, 13, 1);
+(12, 16, 6),
+(13, 15, 7),
+(14, 15, 6);
 
 -- --------------------------------------------------------
 
@@ -123,17 +123,37 @@ CREATE TABLE `persoon` (
   `Plaats` varchar(255) NOT NULL,
   `Land` varchar(255) NOT NULL,
   `Uren_per_week` int(11) NOT NULL,
-  `Loon` decimal(65,2) NOT NULL
+  `Loon` decimal(65,2) NOT NULL,
+  `Rol_Id` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `persoon`
 --
 
-INSERT INTO `persoon` (`Pers_Id`, `Voornaam`, `Achternaam`, `Email`, `Wachtwoord`, `Salt`, `Adres`, `Postcode`, `Plaats`, `Land`, `Uren_per_week`, `Loon`) VALUES
-(1, 'Stefan', 'Teunissen', 'stefanteunissen@gmail.com', 'pizza', 'pizza', 'Slinger 45', '6641DH', 'Nijmegen', 'Ierland', 40, '5000.40'),
-(3, 'Nino', 'Perez Vazquez', 'n.aino@hotmail.uk', '$2y$10$yruKZQ/9U72MwpxEUI2UwOAv1SqIGHz/2kKfMGVJa3VMtGWB5TssS', '', 'Mast 10', '6852 CG', 'Huissen', 'Spanje', 69, '420.00'),
-(4, 'Thomas', 'Van Minnen', 'thomasminnie@gmail.com', '$2y$10$Tba0qw/sY2j0SVvkDdofVuvdP2N96qc8GzUw7xslfiWuliA08YScO', '', 'Negerstraat 69', '6666EE', 'Kronenburg', 'Italie', 8, '420.00');
+INSERT INTO `persoon` (`Pers_Id`, `Voornaam`, `Achternaam`, `Email`, `Wachtwoord`, `Salt`, `Adres`, `Postcode`, `Plaats`, `Land`, `Uren_per_week`, `Loon`, `Rol_Id`) VALUES
+(6, 'stefan', 'teunissen', 'stefan@teunissen.nl', '$2y$10$lWAoIY9eoU0THov.S3cUUuIId7EUWsCjFEt1G8rztGRLSIlp/sHpC', '', 'slinger 45', '6641HD', 'nederland', 'beuningen', 40, '40.00', 1),
+(7, 'admin', 'admin', 'admin@admin.admin', '$2y$10$UW6S1PtRf187xHCBfDXZxeFWXrwNI3trb6H.38/tqyW9/TC/q8v1i', '', 'admin', 'admin', 'admin', 'admin', 40, '40.00', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `persoon_rol`
+--
+
+CREATE TABLE `persoon_rol` (
+  `Rol_Id` int(11) NOT NULL,
+  `Rol` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `persoon_rol`
+--
+
+INSERT INTO `persoon_rol` (`Rol_Id`, `Rol`) VALUES
+(1, 'User'),
+(2, 'Admin'),
+(3, 'Kartrekker');
 
 -- --------------------------------------------------------
 
@@ -153,7 +173,7 @@ CREATE TABLE `persoon_skills_ervaring` (
 --
 
 INSERT INTO `persoon_skills_ervaring` (`Persoon_Skills_Ervaring_Id`, `Pers_Id`, `Skills_Id`, `Ervaring_Id`) VALUES
-(1, 1, 3, 1);
+(3, 6, 8, 3);
 
 -- --------------------------------------------------------
 
@@ -178,7 +198,7 @@ CREATE TABLE `project` (
 --
 
 INSERT INTO `project` (`Project_Id`, `Naam`, `Owner`, `Organization`, `Phone`, `Email`, `Startdatum`, `Deadline`, `Prijs`) VALUES
-(1, 'Testproject', 1, 'Environment.Exit();', '0246774867', 'environment@exit.nl', '2018-03-28', '2018-03-29 10:00:00', '500.00');
+(2, 'Environment.Exit();', 6, 'Environment.Exit();', '0246579843', 'environmen@exit.nl', '2018-03-29', '2018-03-29 10:00:00', '5000.00');
 
 -- --------------------------------------------------------
 
@@ -198,7 +218,7 @@ CREATE TABLE `projectdetail` (
 --
 
 INSERT INTO `projectdetail` (`ProjectDetail_Id`, `Project_Id`, `Expertise_Id`, `Totaal_aantal_uren`) VALUES
-(1, 1, 3, 30);
+(2, 2, 6, 30);
 
 -- --------------------------------------------------------
 
@@ -218,7 +238,7 @@ CREATE TABLE `projectdetail_skills` (
 --
 
 INSERT INTO `projectdetail_skills` (`ProjectDetail_Skills_Id`, `ProjectDetail_Id`, `Skill_Id`, `Aantal_uren`) VALUES
-(1, 1, 3, 30);
+(2, 2, 4, 20);
 
 -- --------------------------------------------------------
 
@@ -238,8 +258,9 @@ CREATE TABLE `skill` (
 --
 
 INSERT INTO `skill` (`Skill_Id`, `Expertise_Id`, `Omschrijving`, `Prijs`) VALUES
-(2, 3, 'Dreamweaver', '50.00'),
-(3, 2, 'HTML/CSS', '50.00');
+(4, 6, 'Dreamweaver', '50.00'),
+(7, 4, 'HTML/CSS', '50.00'),
+(8, 5, 'PHP', '60.00');
 
 --
 -- Indexes for dumped tables
@@ -276,7 +297,14 @@ ALTER TABLE `expertisegroep_persoon`
 -- Indexes for table `persoon`
 --
 ALTER TABLE `persoon`
-  ADD PRIMARY KEY (`Pers_Id`);
+  ADD PRIMARY KEY (`Pers_Id`),
+  ADD KEY `Rol_Id` (`Rol_Id`);
+
+--
+-- Indexes for table `persoon_rol`
+--
+ALTER TABLE `persoon_rol`
+  ADD PRIMARY KEY (`Rol_Id`);
 
 --
 -- Indexes for table `persoon_skills_ervaring`
@@ -325,61 +353,67 @@ ALTER TABLE `skill`
 -- AUTO_INCREMENT for table `ervaring`
 --
 ALTER TABLE `ervaring`
-  MODIFY `Ervaring_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Ervaring_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `expertise`
 --
 ALTER TABLE `expertise`
-  MODIFY `Expertise_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Expertise_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `expertisegroep`
 --
 ALTER TABLE `expertisegroep`
-  MODIFY `Expertisegroep_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `Expertisegroep_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `expertisegroep_persoon`
 --
 ALTER TABLE `expertisegroep_persoon`
-  MODIFY `Expertisegroep_Persoon_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `Expertisegroep_Persoon_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `persoon`
 --
 ALTER TABLE `persoon`
-  MODIFY `Pers_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Pers_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `persoon_rol`
+--
+ALTER TABLE `persoon_rol`
+  MODIFY `Rol_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `persoon_skills_ervaring`
 --
 ALTER TABLE `persoon_skills_ervaring`
-  MODIFY `Persoon_Skills_Ervaring_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Persoon_Skills_Ervaring_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `Project_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Project_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `projectdetail`
 --
 ALTER TABLE `projectdetail`
-  MODIFY `ProjectDetail_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ProjectDetail_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `projectdetail_skills`
 --
 ALTER TABLE `projectdetail_skills`
-  MODIFY `ProjectDetail_Skills_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ProjectDetail_Skills_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `skill`
 --
 ALTER TABLE `skill`
-  MODIFY `Skill_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Skill_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
@@ -397,6 +431,12 @@ ALTER TABLE `expertisegroep`
 ALTER TABLE `expertisegroep_persoon`
   ADD CONSTRAINT `expertisegroep_persoon_ibfk_1` FOREIGN KEY (`Expertisegroep_Id`) REFERENCES `expertisegroep` (`Expertisegroep_Id`),
   ADD CONSTRAINT `expertisegroep_persoon_ibfk_2` FOREIGN KEY (`Pers_Id`) REFERENCES `persoon` (`Pers_Id`);
+
+--
+-- Constraints for table `persoon`
+--
+ALTER TABLE `persoon`
+  ADD CONSTRAINT `persoon_ibfk_1` FOREIGN KEY (`Rol_Id`) REFERENCES `persoon_rol` (`Rol_Id`);
 
 --
 -- Constraints for table `persoon_skills_ervaring`
