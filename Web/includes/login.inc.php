@@ -1,4 +1,4 @@
-<form method="post" action="index.php">
+<form method="post" action="index.php?page=login">
 	<br>
 		<b><i>Please login!</i></b>
 	<br>

@@ -1,9 +1,8 @@
 <?php
     if (isset($_SESSION['loggedIn'])) {
+		header("Location: ?page=adminmenu");
     } 
-        
-
-        if (isset($_POST['username']) && isset($_POST['password'])) {
+        elseif (isset($_POST['username']) && isset($_POST['password'])) {
 		$username = $_POST['username'];
 		
 		$sth = $con->prepare("SELECT * FROM persoon WHERE Email = :username"); 
@@ -12,14 +11,15 @@
 		$row = $sth->fetch();
 		if ($row) {
 			if (password_verify($_POST['password'], $row['Wachtwoord'])) {
+				header("Location: ?page=adminmenu");
 				$_SESSION['loggedIn'] = $username;
 			}else{
 				header($page = "login");
-				echo("<div class='login_error'>Password is incorrect</div>");
+				echo("Password is incorrect");
 			}
 		} else {
 			header($page = "login");
-			echo("<div class='login_error'>Username is incorrect or user does not exist</div>");
+			echo("Username is incorrect or user does not exist");
 		}
     }
 ?>
