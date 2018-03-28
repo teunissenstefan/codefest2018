@@ -1,3 +1,10 @@
+<?php
+if(isset($_GET['page'])){
+    $page = $_GET['page'];
+}else{
+    $page = "login";
+}
+?>
 <html>
 	<head>
 		<!--Import Google Icon Font-->
@@ -33,7 +40,12 @@
 		});
 		</script>
 		<div class="container">
-		    asodj
+		    <?php
+		    if(is_file("includes/".$page.".inc.php")){
+		        include_once("includes/".$page.".inc.php");
+            }
+
+		    ?>
 		</div>
 	</body>
 </html>
