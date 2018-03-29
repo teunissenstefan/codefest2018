@@ -24,9 +24,24 @@
 			<li><input type="text" name="city" placeholder="Woonplaats"></li>
 			<li><b>Uren:</b></li>
 			<li><input type="text" name="upw" placeholder="Uren"></li>
+			<li><b>Rol:</b></li>
+			<li>
+				<select name="rol_id">
+				<?php
+					foreach($rollen as $rol){
+						echo "<option value='".$rol['Rol_Id']."'>".$rol['Rol']."</option>";
+					}
+				?>
+				</select>
+			</li>
 			<li><b>Loon:</b></li>
 			<li><input type="text" name="loon" placeholder="Loon"></li>
 			<li><input type="submit" name="submit" value="add"></li>
 		</ul>
 	</div>
 </form>
+<script>
+	$(document).ready(function() {
+    $('select').material_select();
+});
+</script>

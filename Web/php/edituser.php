@@ -10,9 +10,10 @@
         $upw = $_POST['upw'];
         $loon = $_POST['loon'];
 		$pass = $_POST['pass'];
+		$rol = $_POST['rol_id'];
 		$hashpws = password_hash($pass, PASSWORD_DEFAULT);
 
-        $sth = $con->prepare("UPDATE persoon SET Voornaam = :voornaam, Achternaam = :achternaam, Email = :email, Wachtwoord = :wachtwoord, Adres = :adres, Postcode = :postcode, Plaats = :city, Land = :land, Uren_per_week = :uren_per_week, Loon = :loon WHERE Pers_Id = :uid");
+        $sth = $con->prepare("UPDATE persoon SET Voornaam = :voornaam, Achternaam = :achternaam, Email = :email, Wachtwoord = :wachtwoord, Adres = :adres, Postcode = :postcode, Plaats = :city, Land = :land, Uren_per_week = :uren_per_week, Loon = :loon, Rol_Id=:rol_id WHERE Pers_Id = :uid");
         $sth->bindParam(":voornaam", $fname);
         $sth->bindParam(":achternaam", $lname);
         $sth->bindParam(":email", $email);
@@ -24,6 +25,7 @@
         $sth->bindParam(":uren_per_week", $upw);
         $sth->bindParam(":loon", $loon);
         $sth->bindParam(":uid", $_GET['uid']);
+        $sth->bindParam(":rol_id", $rol);
         $sth->execute();
 		header("Location: ?page=medewerkerbeheer");
     }

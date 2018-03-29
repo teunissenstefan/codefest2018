@@ -24,6 +24,20 @@
 			<li><input type="text" name="city" placeholder="<?php echo $userg[8]; ?>"></li>
 			<li><b>Uren:</b></li>
 			<li><input type="text" name="upw" placeholder="<?php echo $userg[10]; ?>"></li>
+			<li><b>Rol:</b></li>
+			<li>
+				<select name="rol_id">
+				<?php
+					foreach($rollen as $rol){
+						echo "<option value='".$rol['Rol_Id']."' ";
+						if($userg['Rol_Id']==$rol['Rol_Id']){
+							echo "selected";
+						}
+						echo ">".$rol['Rol']."</option>";
+					}
+				?>
+				</select>
+			</li>
 			<li><b>Loon:</b></li>
 			<li><input type="text" name="loon" placeholder="<?php echo $userg[11]; ?>"></li>
 			<li><input type="submit" name="submit" value="edit"></li>
