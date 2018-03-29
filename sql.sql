@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 29, 2018 at 09:12 AM
+-- Generation Time: Mar 29, 2018 at 09:34 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -72,7 +72,7 @@ CREATE TABLE `expertisegroep` (
   `Expertise_Id` int(11) NOT NULL,
   `Uren_Gewenst` int(11) NOT NULL,
   `Uren_Effectief` int(11) NOT NULL,
-  `Karttrekker` tinyint(1) NOT NULL,
+  `Karttrekker` int(11) NOT NULL,
   `Omschrijving` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -81,8 +81,7 @@ CREATE TABLE `expertisegroep` (
 --
 
 INSERT INTO `expertisegroep` (`Expertisegroep_Id`, `Expertise_Id`, `Uren_Gewenst`, `Uren_Effectief`, `Karttrekker`, `Omschrijving`) VALUES
-(15, 4, 40, 40, 1, 'test'),
-(16, 5, 12, 23, 0, 'asdasd');
+(17, 4, 80, 80, 14, 'aa');
 
 -- --------------------------------------------------------
 
@@ -101,7 +100,7 @@ CREATE TABLE `expertisegroep_persoon` (
 --
 
 INSERT INTO `expertisegroep_persoon` (`Expertisegroep_Persoon_Id`, `Expertisegroep_Id`, `Pers_Id`) VALUES
-(13, 15, 7);
+(15, 17, 14);
 
 -- --------------------------------------------------------
 
@@ -131,7 +130,10 @@ CREATE TABLE `persoon` (
 
 INSERT INTO `persoon` (`Pers_Id`, `Voornaam`, `Achternaam`, `Email`, `Wachtwoord`, `Salt`, `Adres`, `Postcode`, `Plaats`, `Land`, `Uren_per_week`, `Loon`, `Rol_Id`) VALUES
 (7, 'admin', 'admin', 'admin@admin.admin', '$2y$10$UW6S1PtRf187xHCBfDXZxeFWXrwNI3trb6H.38/tqyW9/TC/q8v1i', '', 'admin', 'admin', 'admin', 'admin', 40, '40.00', 2),
-(14, 'stefan', 'stefan', 'stefan@stefan.stefan', '$2y$10$1dNA0vruBfvEpiwJcSjVMObc.98Yul179wEWa7gyBJpe2kEwgCd..', '', 'stefan', 'stefan', 'stefan', 'stefan', 40, '40.00', 2);
+(14, 'stefan', 'stefan', 'stefan@stefan.stefan', '$2y$10$1dNA0vruBfvEpiwJcSjVMObc.98Yul179wEWa7gyBJpe2kEwgCd..', '', 'stefan', 'stefan', 'stefan', 'stefan', 40, '40.00', 2),
+(16, 'thomas', 'thomas', 'thomas@thomas.thomas', '$2y$10$0Wn/67SePLFeyGY02b/NEO5CDTa1egA92CLpgvomSTyqMUYgI0hou', '', 'thomas', 'thomas', 'thomas', 'thomas', 0, '0.00', 2),
+(17, 'david', 'david', 'david@david.david', '$2y$10$TPjL8gLsAIGfRN1j2y7CReeTBuBsoD1uoazjH2aoxMBxx5usL.B1K', '', 'david', 'david', 'david', 'david', 0, '0.00', 2),
+(18, 'nino', 'nino', 'nino@nino.nino', '$2y$10$9nCpo8LZ6siKup0PLEfkOuMDTWAFJ55lLbHkXBLwj1VLTXds7ErUi', '', 'nino', 'nino', 'nino', 'nino', 0, '0.00', 2);
 
 -- --------------------------------------------------------
 
@@ -270,7 +272,8 @@ ALTER TABLE `expertise`
 --
 ALTER TABLE `expertisegroep`
   ADD PRIMARY KEY (`Expertisegroep_Id`),
-  ADD KEY `Expertise_Id` (`Expertise_Id`);
+  ADD KEY `Expertise_Id` (`Expertise_Id`),
+  ADD KEY `Karttrekker` (`Karttrekker`);
 
 --
 -- Indexes for table `expertisegroep_persoon`
@@ -352,19 +355,19 @@ ALTER TABLE `expertise`
 -- AUTO_INCREMENT for table `expertisegroep`
 --
 ALTER TABLE `expertisegroep`
-  MODIFY `Expertisegroep_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `Expertisegroep_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `expertisegroep_persoon`
 --
 ALTER TABLE `expertisegroep_persoon`
-  MODIFY `Expertisegroep_Persoon_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `Expertisegroep_Persoon_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `persoon`
 --
 ALTER TABLE `persoon`
-  MODIFY `Pers_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `Pers_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `persoon_rol`
@@ -410,7 +413,8 @@ ALTER TABLE `skill`
 -- Constraints for table `expertisegroep`
 --
 ALTER TABLE `expertisegroep`
-  ADD CONSTRAINT `expertisegroep_ibfk_1` FOREIGN KEY (`Expertise_Id`) REFERENCES `expertise` (`Expertise_Id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `expertisegroep_ibfk_1` FOREIGN KEY (`Expertise_Id`) REFERENCES `expertise` (`Expertise_Id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `expertisegroep_ibfk_2` FOREIGN KEY (`Karttrekker`) REFERENCES `persoon` (`Pers_Id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `expertisegroep_persoon`

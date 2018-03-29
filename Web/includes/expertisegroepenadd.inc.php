@@ -27,8 +27,15 @@
     <input type="text" value="<?php echo $post_uren_effectief; ?>" name="uren_effectief"><br>
     Kartrekker:<br>
     <select name="kartrekker">
-        <option value="1" <?php if($post_kartrekker==1){echo"selected";} ?>>Ja</option>
-        <option value="0" <?php if($post_kartrekker==0){echo"selected";} ?>>Nee</option>
+        <?php
+            foreach($personen as $persoon){
+                echo "<option value='".$persoon['Pers_Id']."' ";
+                if($post_kartrekker==$persoon['Pers_Id']){
+                    echo "selected";
+                }
+                echo ">".$persoon['Voornaam']." ".$persoon['Achternaam']."</option>";
+            }
+        ?>
     </select>
     Omschrijving:<br>
     <textarea class="materialize-textarea" name="omschrijving"><?php echo $post_omschrijving; ?></textarea>

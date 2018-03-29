@@ -22,7 +22,23 @@ catch(PDOException $ex)
 { 
     die("Failed to run query (4)"); 
 }
-$expertises = $stmt->fetchAll(PDO::FETCH_ASSOC);  
+$expertises = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+
+$personenQuery = " 
+    SELECT 
+        *
+    FROM persoon
+";
+try 
+{ 
+    $stmt = $con->prepare($personenQuery); 
+    $stmt->execute(); 
+} 
+catch(PDOException $ex) 
+{ 
+    die("Failed to run query (5)"); 
+}
+$personen = $stmt->fetchAll(PDO::FETCH_ASSOC); 
 
 $post_expertise_id = "";
 $post_uren_gewenst = "";

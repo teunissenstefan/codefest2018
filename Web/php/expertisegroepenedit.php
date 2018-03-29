@@ -26,6 +26,22 @@ catch(PDOException $ex)
 }
 $expertiseGroep = $stmt->fetch();
 
+$personenQuery = " 
+    SELECT 
+        *
+    FROM persoon
+";
+try 
+{ 
+    $stmt = $con->prepare($personenQuery); 
+    $stmt->execute(); 
+} 
+catch(PDOException $ex) 
+{ 
+    die("Failed to run query (5)"); 
+}
+$personen = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+
 if($expertiseGroep){
     $persoonQuery = " 
         SELECT 
