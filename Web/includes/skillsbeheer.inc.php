@@ -1,6 +1,8 @@
 <?php
+echo "<a href='?page=skillsbeheeradd'><button>Toevoegen</button></a> ";
+echo "<button onclick='window.location=window.location;'>Ververs</button>";
 if($aantalGroepen == 0){
-    echo "Er zijn geen groepen gevonden";
+    echo "Er zijn geen skills gevonden";
 }else{
     //header
     echo "<div class='row rowHeader'>

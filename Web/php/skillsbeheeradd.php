@@ -1,28 +1,4 @@
 <?php
-$id = "";
-if(isset($_GET['id'])){
-    $id = $_GET['id'];
-}
-
-$query = " 
-    SELECT *
-  FROM skill
-        WHERE 
-            Skill_Id = :Skill_Id
-";
-
-try
-{
-    $stmt = $con->prepare($query);
-    $stmt->bindParam(':Skill_Id', $id);
-    $stmt->execute();
-}
-catch(PDOException $ex)
-{
-    die("Failed to run query (1)");
-}
-$skill = $stmt->fetch();
-
 $expertiseQuery = " 
     SELECT 
         *
@@ -31,18 +7,17 @@ $expertiseQuery = "
 try
 {
     $stmt = $con->prepare($expertiseQuery);
-    $stmt->bindParam(':Expertise_Id', $skill['Expertise_Id']);
     $stmt->execute();
 }
 catch(PDOException $ex)
 {
-    die("Failed to run query (2)");
+    die("Failed to run query (1)");
 }
 $expertises = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$post_expertise_id = $skill['Expertise_Id'];
-$post_omschrijving = $skill['Omschrijving'];
-$post_prijs = $skill['Prijs'];
+$post_expertise_id = "";
+$post_omschrijving = "";
+$post_prijs = "";
 $failed = false;
 if(isset($_POST['submit'])){
     $errorMsg = "Los de volgende problemen op:";
@@ -71,14 +46,13 @@ if(isset($_POST['submit'])){
     if($failed == false){
         //de query
         $query = " 
-            UPDATE skill
-            SET Expertise_Id=:Expertise_Id,Omschrijving=:Omschrijving,Prijs=:Prijs
-            WHERE Skill_Id=:Skill_Id
+            INSERT INTO skill
+            (Expertise_Id,Omschrijving,Prijs)
+            VALUES (:Expertise_Id,:Omschrijving,:Prijs)
         ";
         try
         {
             $stmt = $con->prepare($query);
-            $stmt->bindParam(':Skill_Id', $_GET['id']);
             $stmt->bindParam(':Expertise_Id', $post_expertise_id);
             $stmt->bindParam(':Omschrijving', $post_omschrijving);
             $stmt->bindParam(':Prijs', $post_prijs);
@@ -86,9 +60,8 @@ if(isset($_POST['submit'])){
         }
         catch(PDOException $ex)
         {
-            die("Failed to run query (1)");
+            die("Failed to run query (2)");
         }
-        header("Location:?page=skillbeheer");
     }
 }
 ?>
