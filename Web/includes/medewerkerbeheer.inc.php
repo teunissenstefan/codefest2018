@@ -1,24 +1,21 @@
 <?php
 	if (isset($_SESSION['loggedIn'])) {
+	echo "<a href='?page=adminmenu'><button>&#9668;Terug</button></a> ";
+	echo "<a href='?page=medewerkerbeheer&add=true'><button>Toevoegen</button></a> ";
+	echo "<a href='?page=medewerkerbeheer'><button>Ververs</button></a>";
 ?>
-<a href="?page=medewerkerbeheer">
-</a>
-<br>
-<br>
 <div class='row rowHeader'>
 	<div class='col s12 l2'>
 		Naam
 	</div>
-	<div class='col s12 l2'>
+	<div class='col s12 l3'>
 		E-mail
 	</div>
-	<div class='col s12 l2'>
+	<div class='col s12 l3'>
 		Adress
 	</div>
-	<div class='col s12 l2' style="float: right;">	
-		<a href='?page=medewerkerbeheer&add=true'>
-			<h5>+</h5>
-		</a>
+	<div class='col s12 l2'>	
+		Acties
 	</div>
 </div>
 <?php
@@ -35,24 +32,14 @@
 					<?php echo $user[6]; ?>
 				</div>
 				<div class='col s12 l2'>
-				<?php
-					if (isset ($_GET['uid']) && isset ($_GET['edit'])) {
-				?>
-						<a href='?page=medewerkerbeheer'>
-				<?php
-					}
-					else {
-					?>
-						<a href='?page=medewerkerbeheer&edit=false&uid=<?php echo $user[0]; ?>'>
-					<?php
-					}
-				?>
-						<img src='images/dash.png' width='40px'>
-					</a>
-				</div>
-				<div class='col s12 l2'>
+					<a href='?page=medewerkerbeheer&edit=false&uid=<?php echo $user[0]; ?>'>
+						Bekijk
+					</a> / 
 					<a href='?page=medewerkerbeheer&edit=true&uid=<?php echo $user[0]; ?>'>
-						<img src='images/circel.png' width='40px'>
+						Bewerk
+					</a> / 
+					<a href='?page=medewerkerbeheer&delete=true&uid=<?php echo $user[0]; ?>'>
+						Verwijder
 					</a>
 				</div>
 			</div>
@@ -69,6 +56,11 @@
 		elseif (isset ($_GET['add'])) {
 			if ($_GET['add'] == "true") {
 				include ("includes/adduser.inc.php");
+			}
+		}
+		elseif (isset ($_GET['delete'])) {
+			if ($_GET['delete'] == "true") {
+				include ("php/deleteuser.php");
 			}
 		}
 	}

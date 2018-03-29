@@ -1,5 +1,7 @@
 <?php
-
+if($_SESSION['rol']!="Admin"){
+    header("Location:?page=personaldashboard");
+}
     if(isset($_POST['submit'])){
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];

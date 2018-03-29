@@ -36,10 +36,11 @@
 			</li>
 			<li><b>Loon:</b></li>
 			<li><input type="text" name="loon" placeholder="Loon"></li>
-			<li><input type="submit" name="submit" value="add"></li>
+			<li><input type="submit" name="submit" value="Toevoegen"> <button onclick="location.href='?page=medewerkerbeheer';return false;">Annuleren</button></li>
 		</ul>
 	</div>
 </form>
+
 <script>
 	$(document).ready(function() {
     $('select').material_select();

@@ -1,4 +1,5 @@
 <?php
+echo "<a href='?page=adminmenu'><button>&#9668;Terug</button></a> ";
 echo "<a href='?page=expertisegroepenadd'><button>Toevoegen</button></a> ";
 echo "<button onclick='window.location=window.location;'>Ververs</button>";
 if($aantalGroepen == 0){

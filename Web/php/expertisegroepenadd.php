@@ -1,4 +1,7 @@
 <?php
+if($_SESSION['rol']!="Admin"){
+    header("Location:?page=personaldashboard");
+}
 $id = "";
 if(isset($_GET['id'])){
     $id = $_GET['id'];

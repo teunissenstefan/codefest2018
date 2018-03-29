@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once("functions/connect.php");
 session_start();
 if(isset($_GET['page'])){
@@ -54,16 +55,20 @@ if(isset($_GET['page'])){
 		});
 		</script>
 		<div class="container content">
-		    <?php
-			if(is_file("php/".$page.".php")){
-		        include_once("php/".$page.".php");
-            }
-		    if(is_file("includes/".$page.".inc.php")){
-		        include_once("includes/".$page.".inc.php");
-            }else{
-				echo "Pagina niet gevonden";
+			<?php
+			if (isset($_SESSION['loggedIn'])) {
+				if(is_file("php/".$page.".php")){
+					include_once("php/".$page.".php");
+				}
+				if(is_file("includes/".$page.".inc.php")){
+					include_once("includes/".$page.".inc.php");
+				}else{
+					echo "Pagina niet gevonden";
+				}
+			}else{
+				include_once("php/login.php");
+				include_once("includes/login.inc.php");
 			}
-
 		    ?>
 		</div>
 	</body>

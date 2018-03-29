@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 29, 2018 at 01:43 AM
+-- Generation Time: Mar 29, 2018 at 05:48 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -101,9 +101,7 @@ CREATE TABLE `expertisegroep_persoon` (
 --
 
 INSERT INTO `expertisegroep_persoon` (`Expertisegroep_Persoon_Id`, `Expertisegroep_Id`, `Pers_Id`) VALUES
-(12, 16, 6),
-(13, 15, 7),
-(14, 15, 6);
+(13, 15, 7);
 
 -- --------------------------------------------------------
 
@@ -132,8 +130,8 @@ CREATE TABLE `persoon` (
 --
 
 INSERT INTO `persoon` (`Pers_Id`, `Voornaam`, `Achternaam`, `Email`, `Wachtwoord`, `Salt`, `Adres`, `Postcode`, `Plaats`, `Land`, `Uren_per_week`, `Loon`, `Rol_Id`) VALUES
-(6, 'stefan', 'teunissen', 'stefan@teunissen.nl', '$2y$10$lWAoIY9eoU0THov.S3cUUuIId7EUWsCjFEt1G8rztGRLSIlp/sHpC', '', 'slinger 45', '6641HD', 'nederland', 'beuningen', 40, '40.00', 1),
-(7, 'admin', 'admin', 'admin@admin.admin', '$2y$10$UW6S1PtRf187xHCBfDXZxeFWXrwNI3trb6H.38/tqyW9/TC/q8v1i', '', 'admin', 'admin', 'admin', 'admin', 40, '40.00', 1);
+(7, 'admin', 'admin', 'admin@admin.admin', '$2y$10$UW6S1PtRf187xHCBfDXZxeFWXrwNI3trb6H.38/tqyW9/TC/q8v1i', '', 'admin', 'admin', 'admin', 'admin', 40, '40.00', 2),
+(14, 'stefan', 'stefan', 'stefan@stefan.stefan', '$2y$10$1dNA0vruBfvEpiwJcSjVMObc.98Yul179wEWa7gyBJpe2kEwgCd..', '', 'stefan', 'stefan', 'stefan', 'stefan', 40, '40.00', 1);
 
 -- --------------------------------------------------------
 
@@ -173,7 +171,8 @@ CREATE TABLE `persoon_skills_ervaring` (
 --
 
 INSERT INTO `persoon_skills_ervaring` (`Persoon_Skills_Ervaring_Id`, `Pers_Id`, `Skills_Id`, `Ervaring_Id`) VALUES
-(3, 6, 8, 3);
+(4, 7, 4, 3),
+(5, 14, 4, 3);
 
 -- --------------------------------------------------------
 
@@ -184,7 +183,7 @@ INSERT INTO `persoon_skills_ervaring` (`Persoon_Skills_Ervaring_Id`, `Pers_Id`, 
 CREATE TABLE `project` (
   `Project_Id` int(11) NOT NULL,
   `Naam` varchar(255) NOT NULL,
-  `Owner` int(11) NOT NULL,
+  `Owner` int(11) DEFAULT NULL,
   `Organization` varchar(255) NOT NULL,
   `Phone` varchar(30) NOT NULL,
   `Email` varchar(255) NOT NULL,
@@ -192,13 +191,6 @@ CREATE TABLE `project` (
   `Deadline` datetime NOT NULL,
   `Prijs` decimal(65,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `project`
---
-
-INSERT INTO `project` (`Project_Id`, `Naam`, `Owner`, `Organization`, `Phone`, `Email`, `Startdatum`, `Deadline`, `Prijs`) VALUES
-(2, 'Environment.Exit();', 6, 'Environment.Exit();', '0246579843', 'environmen@exit.nl', '2018-03-29', '2018-03-29 10:00:00', '5000.00');
 
 -- --------------------------------------------------------
 
@@ -213,13 +205,6 @@ CREATE TABLE `projectdetail` (
   `Totaal_aantal_uren` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `projectdetail`
---
-
-INSERT INTO `projectdetail` (`ProjectDetail_Id`, `Project_Id`, `Expertise_Id`, `Totaal_aantal_uren`) VALUES
-(2, 2, 6, 30);
-
 -- --------------------------------------------------------
 
 --
@@ -232,13 +217,6 @@ CREATE TABLE `projectdetail_skills` (
   `Skill_Id` int(11) NOT NULL,
   `Aantal_uren` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `projectdetail_skills`
---
-
-INSERT INTO `projectdetail_skills` (`ProjectDetail_Skills_Id`, `ProjectDetail_Id`, `Skill_Id`, `Aantal_uren`) VALUES
-(2, 2, 4, 20);
 
 -- --------------------------------------------------------
 
@@ -258,9 +236,11 @@ CREATE TABLE `skill` (
 --
 
 INSERT INTO `skill` (`Skill_Id`, `Expertise_Id`, `Omschrijving`, `Prijs`) VALUES
-(4, 6, 'Dreamweaver', '50.00'),
+(4, 6, 'Dreamweaver', '50.01'),
 (7, 4, 'HTML/CSS', '50.00'),
-(8, 5, 'PHP', '60.00');
+(8, 5, 'PHP', '60.00'),
+(10, 5, 'Ruby', '500.00'),
+(11, 6, 'PhotoShop', '0.01');
 
 --
 -- Indexes for dumped tables
@@ -298,7 +278,7 @@ ALTER TABLE `expertisegroep_persoon`
 --
 ALTER TABLE `persoon`
   ADD PRIMARY KEY (`Pers_Id`),
-  ADD KEY `Rol_Id` (`Rol_Id`);
+  ADD KEY `persoon_ibfk_1` (`Rol_Id`);
 
 --
 -- Indexes for table `persoon_rol`
@@ -377,7 +357,7 @@ ALTER TABLE `expertisegroep_persoon`
 -- AUTO_INCREMENT for table `persoon`
 --
 ALTER TABLE `persoon`
-  MODIFY `Pers_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Pers_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `persoon_rol`
@@ -389,7 +369,7 @@ ALTER TABLE `persoon_rol`
 -- AUTO_INCREMENT for table `persoon_skills_ervaring`
 --
 ALTER TABLE `persoon_skills_ervaring`
-  MODIFY `Persoon_Skills_Ervaring_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Persoon_Skills_Ervaring_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `project`
@@ -413,7 +393,7 @@ ALTER TABLE `projectdetail_skills`
 -- AUTO_INCREMENT for table `skill`
 --
 ALTER TABLE `skill`
-  MODIFY `Skill_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Skill_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
@@ -423,54 +403,54 @@ ALTER TABLE `skill`
 -- Constraints for table `expertisegroep`
 --
 ALTER TABLE `expertisegroep`
-  ADD CONSTRAINT `expertisegroep_ibfk_1` FOREIGN KEY (`Expertise_Id`) REFERENCES `expertise` (`Expertise_Id`);
+  ADD CONSTRAINT `expertisegroep_ibfk_1` FOREIGN KEY (`Expertise_Id`) REFERENCES `expertise` (`Expertise_Id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `expertisegroep_persoon`
 --
 ALTER TABLE `expertisegroep_persoon`
-  ADD CONSTRAINT `expertisegroep_persoon_ibfk_1` FOREIGN KEY (`Expertisegroep_Id`) REFERENCES `expertisegroep` (`Expertisegroep_Id`),
-  ADD CONSTRAINT `expertisegroep_persoon_ibfk_2` FOREIGN KEY (`Pers_Id`) REFERENCES `persoon` (`Pers_Id`);
+  ADD CONSTRAINT `expertisegroep_persoon_ibfk_1` FOREIGN KEY (`Expertisegroep_Id`) REFERENCES `expertisegroep` (`Expertisegroep_Id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `expertisegroep_persoon_ibfk_2` FOREIGN KEY (`Pers_Id`) REFERENCES `persoon` (`Pers_Id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `persoon`
 --
 ALTER TABLE `persoon`
-  ADD CONSTRAINT `persoon_ibfk_1` FOREIGN KEY (`Rol_Id`) REFERENCES `persoon_rol` (`Rol_Id`);
+  ADD CONSTRAINT `persoon_ibfk_1` FOREIGN KEY (`Rol_Id`) REFERENCES `persoon_rol` (`Rol_Id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `persoon_skills_ervaring`
 --
 ALTER TABLE `persoon_skills_ervaring`
-  ADD CONSTRAINT `persoon_skills_ervaring_ibfk_1` FOREIGN KEY (`Pers_Id`) REFERENCES `persoon` (`Pers_Id`),
-  ADD CONSTRAINT `persoon_skills_ervaring_ibfk_2` FOREIGN KEY (`Skills_Id`) REFERENCES `skill` (`Skill_Id`),
-  ADD CONSTRAINT `persoon_skills_ervaring_ibfk_3` FOREIGN KEY (`Ervaring_Id`) REFERENCES `ervaring` (`Ervaring_Id`);
+  ADD CONSTRAINT `persoon_skills_ervaring_ibfk_1` FOREIGN KEY (`Pers_Id`) REFERENCES `persoon` (`Pers_Id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `persoon_skills_ervaring_ibfk_2` FOREIGN KEY (`Skills_Id`) REFERENCES `skill` (`Skill_Id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `persoon_skills_ervaring_ibfk_3` FOREIGN KEY (`Ervaring_Id`) REFERENCES `ervaring` (`Ervaring_Id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `project`
 --
 ALTER TABLE `project`
-  ADD CONSTRAINT `Owner` FOREIGN KEY (`Owner`) REFERENCES `persoon` (`Pers_Id`);
+  ADD CONSTRAINT `Owner` FOREIGN KEY (`Owner`) REFERENCES `persoon` (`Pers_Id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `projectdetail`
 --
 ALTER TABLE `projectdetail`
-  ADD CONSTRAINT `Expertise` FOREIGN KEY (`Expertise_Id`) REFERENCES `expertise` (`Expertise_Id`),
-  ADD CONSTRAINT `Project` FOREIGN KEY (`Project_Id`) REFERENCES `project` (`Project_Id`);
+  ADD CONSTRAINT `Expertise` FOREIGN KEY (`Expertise_Id`) REFERENCES `expertise` (`Expertise_Id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `Project` FOREIGN KEY (`Project_Id`) REFERENCES `project` (`Project_Id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `projectdetail_skills`
 --
 ALTER TABLE `projectdetail_skills`
-  ADD CONSTRAINT `ProjectDetail` FOREIGN KEY (`ProjectDetail_Id`) REFERENCES `projectdetail` (`ProjectDetail_Id`),
-  ADD CONSTRAINT `Skill` FOREIGN KEY (`Skill_Id`) REFERENCES `skill` (`Skill_Id`);
+  ADD CONSTRAINT `ProjectDetail` FOREIGN KEY (`ProjectDetail_Id`) REFERENCES `projectdetail` (`ProjectDetail_Id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `Skill` FOREIGN KEY (`Skill_Id`) REFERENCES `skill` (`Skill_Id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `skill`
 --
 ALTER TABLE `skill`
-  ADD CONSTRAINT `skill_ibfk_1` FOREIGN KEY (`Expertise_Id`) REFERENCES `expertise` (`Expertise_Id`);
+  ADD CONSTRAINT `skill_ibfk_1` FOREIGN KEY (`Expertise_Id`) REFERENCES `expertise` (`Expertise_Id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
