@@ -40,7 +40,7 @@
 			</li>
 			<li><b>Loon:</b></li>
 			<li><input type="text" name="loon" placeholder="<?php echo $userg[11]; ?>"></li>
-			<li><input type="submit" name="submit" value="edit"></li>
+			<li><input type="submit" name="submit" value="Opslaan">  <button onclick="location.href='?page=medewerkerbeheer';return false;">Annuleren</button></li>
 		</ul>
 	</div>
 </form>
