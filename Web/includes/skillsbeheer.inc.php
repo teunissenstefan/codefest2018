@@ -5,6 +5,7 @@ if($aantalGroepen == 0){
     echo "Er zijn geen skills gevonden";
 }else{
     //header
+	echo "<a href='?page=adminmenu'><button>&#9668;Terug</button></a> ";
     echo "<div class='row rowHeader'>
             <div class='col s1'>ID</div>
             <div class='col s2'>Expertise</div>

@@ -3,6 +3,7 @@ if($aantalGroepen == 0){
     echo "Er zijn geen groepen gevonden";
 }else{
     //header
+	echo "<a href='?page=adminmenu'><button>&#9668;Terug</button></a> ";
     echo "<a href='?page=ervaringadd'><button>Toevoegen</button></a> ";
     echo "<button onclick='window.location=window.location;'>Ververs</button>";
     echo "<div class='row rowHeader'>
