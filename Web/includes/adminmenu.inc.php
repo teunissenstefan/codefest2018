@@ -19,7 +19,7 @@
 
 
     <div class="col s12 l4" style="text-align:center;">
-        <a href="#">
+        <a href="?page=projectenbeheer">
             <img src="images/projecten.png" alt="" width="150" height="150">
         </a>
         <div class="desc">Projecten</div>

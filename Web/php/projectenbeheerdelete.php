@@ -3,23 +3,21 @@ if($_SESSION['rol']!="Admin"){
     header("Location:?page=personaldashboard");
 }
     $query = " 
-        SELECT 
-            *
+        DELETE
         FROM project
-        ORDER BY
-            Deadline DESC
+        WHERE 
+            Project_Id = :Project_Id
     ";
-    
+
 
     try 
     { 
         $stmt = $con->prepare($query); 
-        $stmt->execute(); 
+        $stmt->bindParam(':Project_Id', $_GET['id']);
+        $stmt->execute();
     } 
     catch(PDOException $ex) 
     { 
         die("Failed to run query (1)"); 
     } 
-    $projecten = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $aantalProjecten = count($projecten);
 ?>

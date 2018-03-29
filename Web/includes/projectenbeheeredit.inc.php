@@ -1,4 +1,5 @@
 <?php
+if($project){
     if(isset($_POST['submit'])){
         if($failed){
             echo $errorMsg;
@@ -8,8 +9,10 @@
     }
 ?>
 <div class="login">
-    <form action="?page=projectenbeheeradd" method="POST">
-	Project naam:<br>
+    <form action="?page=projectenbeheeredit&id=<?php echo $id; ?>" method="POST">
+    ID:<br>
+    <input type="text" value="<?php echo $id; ?>" disabled><br>
+    Project naam:<br>
     <input type="text" value="<?php echo $post_project_naam; ?>" name="project_naam"><br>
     Eigenaar:<br>
     <select name="owner_id">
@@ -35,7 +38,11 @@
     <input type="text" value="<?php echo $post_deadline; ?>" name="deadline"><br>
 	Prijs:<br>
     <input type="text" value="<?php echo $post_prijs; ?>" name="prijs"><br>
-   
-    <input type="submit" name="submit" value="Toevoegen">
+    <input type="submit" name="submit" value="Opslaan">
     </form>
 </div>
+<?php
+}else{
+    echo "Groep niet gevonden";
+}
+?>

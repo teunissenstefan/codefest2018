@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 29, 2018 at 05:48 AM
+-- Generation Time: Mar 29, 2018 at 09:12 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -131,7 +131,7 @@ CREATE TABLE `persoon` (
 
 INSERT INTO `persoon` (`Pers_Id`, `Voornaam`, `Achternaam`, `Email`, `Wachtwoord`, `Salt`, `Adres`, `Postcode`, `Plaats`, `Land`, `Uren_per_week`, `Loon`, `Rol_Id`) VALUES
 (7, 'admin', 'admin', 'admin@admin.admin', '$2y$10$UW6S1PtRf187xHCBfDXZxeFWXrwNI3trb6H.38/tqyW9/TC/q8v1i', '', 'admin', 'admin', 'admin', 'admin', 40, '40.00', 2),
-(14, 'stefan', 'stefan', 'stefan@stefan.stefan', '$2y$10$1dNA0vruBfvEpiwJcSjVMObc.98Yul179wEWa7gyBJpe2kEwgCd..', '', 'stefan', 'stefan', 'stefan', 'stefan', 40, '40.00', 1);
+(14, 'stefan', 'stefan', 'stefan@stefan.stefan', '$2y$10$1dNA0vruBfvEpiwJcSjVMObc.98Yul179wEWa7gyBJpe2kEwgCd..', '', 'stefan', 'stefan', 'stefan', 'stefan', 40, '40.00', 2);
 
 -- --------------------------------------------------------
 
@@ -191,6 +191,13 @@ CREATE TABLE `project` (
   `Deadline` datetime NOT NULL,
   `Prijs` decimal(65,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `project`
+--
+
+INSERT INTO `project` (`Project_Id`, `Naam`, `Owner`, `Organization`, `Phone`, `Email`, `Startdatum`, `Deadline`, `Prijs`) VALUES
+(3, 'Environment.Exit();', 7, 'Environment.Exit(0);', '06254987', 'environment@exit.nl', '2018-03-29', '2018-03-29 00:00:00', '50.00');
 
 -- --------------------------------------------------------
 
@@ -375,7 +382,7 @@ ALTER TABLE `persoon_skills_ervaring`
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `Project_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Project_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `projectdetail`

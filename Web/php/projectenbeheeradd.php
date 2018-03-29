@@ -1,120 +1,129 @@
 <?php
-$id = "";
-if(isset($_GET['id'])){
-    $id = $_GET['id'];
+if($_SESSION['rol']!="Admin"){
+    header("Location:?page=personaldashboard");
 }
 
-$expertiseQuery = " 
+$personenQuery = " 
     SELECT 
         *
-    FROM expertise
-    ORDER BY Omschrijving ASC
+    FROM persoon
 ";
 try 
 { 
-    $stmt = $con->prepare($expertiseQuery); 
+    $stmt = $con->prepare($personenQuery); 
     $stmt->execute(); 
 } 
 catch(PDOException $ex) 
 { 
     die("Failed to run query (4)"); 
 }
-$expertises = $stmt->fetchAll(PDO::FETCH_ASSOC);  
+$personen = $stmt->fetchAll(PDO::FETCH_ASSOC);  
 
-$post_expertise_id = "";
-$post_uren_gewenst = "";
-$post_uren_effectief = "";
-$post_kartrekker = "";
-$post_omschrijving = "";
+$post_owner_id = "";
+$post_project_naam = "";
+$post_organisatie = "";
+$post_telefoonnummer = "";
+$post_email = "";
+$post_startdatum = "";
+$post_deadline = "";
+$post_prijs = "";
 $failed = false;
 if(isset($_POST['submit'])){
     $errorMsg = "Los de volgende problemen op:";
 
-    if($_POST['uren_gewenst']==0 || !empty($_POST['uren_gewenst'])){
-        $post_uren_gewenst = $_POST['uren_gewenst'];
+    if($_POST['prijs']==0 || !empty($_POST['prijs'])){
+        $post_prijs = $_POST['prijs'];
     }else{
-        $errorMsg.= "<br/>Vul de gewenste uren in";
+        $errorMsg.= "<br/>Vul de gewenste prijs in";
         $failed = true;
     }
 
-    if(!empty($_POST['expertise_id'])){
-        $post_expertise_id = $_POST['expertise_id'];
+    if(!empty($_POST['project_naam'])){
+        $post_project_naam = $_POST['project_naam'];
     }else{
-        $errorMsg.= "<br/>Vul de expertise in";
+        $errorMsg.= "<br/>Vul de project naam in";
         $failed = true;
     }
 
-    if($_POST['uren_effectief']==0 || !empty($_POST['uren_effectief'])){
-        $post_uren_effectief = $_POST['uren_effectief'];
+    if(!empty($_POST['organisatie'])){
+        $post_organisatie = $_POST['organisatie'];
     }else{
-        $errorMsg.= "<br/>Vul de effectieve uren in";
+        $errorMsg.= "<br/>Vul de organisatie in";
         $failed = true;
     }
 
-    $post_kartrekker = $_POST['kartrekker'];
-    $post_omschrijving = $_POST['omschrijving'];
+    if(!empty($_POST['organisatie'])){
+        $post_organisatie = $_POST['organisatie'];
+    }else{
+        $errorMsg.= "<br/>Vul de organisatie in";
+        $failed = true;
+    }
+
+    if(!empty($_POST['telefoonnummer'])){
+        $post_phone = $_POST['telefoonnummer'];
+    }else{
+        $errorMsg.= "<br/>Vul de telefoonnummer in";
+        $failed = true;
+    }
+
+    if(!empty($_POST['telefoonnummer'])){
+        $post_telefoonnummer = $_POST['telefoonnummer'];
+    }else{
+        $errorMsg.= "<br/>Vul het telefoonnummer in";
+        $failed = true;
+    }
+
+    if(!empty($_POST['email'])){
+        $post_email = $_POST['email'];
+    }else{
+        $errorMsg.= "<br/>Vul het e-mail adres in";
+        $failed = true;
+    }
+
+    if(!empty($_POST['startdatum'])){
+        $post_startdatum = $_POST['startdatum'];
+    }else{
+        $errorMsg.= "<br/>Vul de startdatum in";
+        $failed = true;
+    }
+
+    if(!empty($_POST['deadline'])){
+        $post_deadline = $_POST['deadline'];
+    }else{
+        $errorMsg.= "<br/>Vul de deadline in";
+        $failed = true;
+    }
+
+    $post_owner_id = $_POST['owner_id'];
 
     if($failed == false){
         //de query
         $query = " 
-            INSERT INTO expertisegroep
-            (Expertise_Id,Uren_Gewenst,Uren_Effectief,Karttrekker,Omschrijving)
-            VALUES (:Expertise_Id,:Uren_Gewenst,:Uren_Effectief,:Kartrekker,:Omschrijving)
+            INSERT INTO project
+            (Naam,Owner,Organization,Phone,Email,Startdatum,Deadline,Prijs)
+            VALUES (:Naam,:Owner,:Organization,:Phone,:Email,:Startdatum,:Deadline,:Prijs)
         ";
         try 
         { 
             $stmt = $con->prepare($query); 
-            $stmt->bindParam(':Expertise_Id', $post_expertise_id);
-            $stmt->bindParam(':Uren_Gewenst', $post_uren_gewenst);
-            $stmt->bindParam(':Uren_Effectief', $post_uren_effectief);
-            $stmt->bindParam(':Omschrijving', $post_omschrijving);
-            $stmt->bindParam(':Kartrekker', $post_kartrekker);
+            $stmt->bindParam(':Naam', $post_project_naam);
+            $stmt->bindParam(':Owner', $post_owner_id);
+            $stmt->bindParam(':Organization', $post_organisatie);
+            $stmt->bindParam(':Phone', $post_phone);
+            $stmt->bindParam(':Email', $post_email);
+            $stmt->bindParam(':Startdatum', $post_startdatum);
+            $stmt->bindParam(':Deadline', $post_deadline);
+            $stmt->bindParam(':Prijs', $post_prijs);
             $stmt->execute();
         } 
         catch(PDOException $ex) 
         { 
-            die("Failed to run query (1)"); 
+            die("Failed to run query (1)".$ex); 
         } 
         if($stmt->rowCount()!=1){
-            $errorMsg.= "Kon de expertisegroep niet toevoegen";
+            $errorMsg.= "Kon het project niet toevoegen";
             $failed = true;
         }
     }
-}
-if(isset($_POST['links']) && isset($_POST['assigned'])){//Persoon verwijderen uit de groep
-    $query = " 
-        DELETE FROM expertisegroep_persoon
-        WHERE Expertisegroep_Id=:Expertisegroep_Id AND Pers_Id=:Pers_Id
-    ";
-    try 
-    { 
-        $stmt = $con->prepare($query); 
-        $stmt->bindParam(':Expertisegroep_Id', $_GET['id']);
-        $stmt->bindParam(':Pers_Id', $_POST['assigned']);
-        $stmt->execute();
-    } 
-    catch(PDOException $ex) 
-    { 
-        die("Failed to run query (1)"); 
-    }
-    header("Location:?page=expertisegroepenedit&id=".$id);
-}
-if(isset($_POST['rechts']) && isset($_POST['personen'])){//Persoon toevoegen aan de groep
-    $query = "INSERT INTO expertisegroep_persoon
-        (Expertisegroep_Id,Pers_Id)
-        VALUES (:Expertisegroep_Id,:Pers_Id)
-    ";
-    try 
-    { 
-        $stmt = $con->prepare($query); 
-        $stmt->bindParam(':Expertisegroep_Id', $_GET['id']);
-        $stmt->bindParam(':Pers_Id', $_POST['personen']);
-        $stmt->execute();
-    } 
-    catch(PDOException $ex) 
-    { 
-        die("Failed to run query (1)"); 
-    }
-    header("Location:?page=expertisegroepenedit&id=".$id);
 }
 ?>

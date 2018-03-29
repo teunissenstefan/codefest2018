@@ -1,4 +1,5 @@
 <?php
+echo "<a href='?page=adminmenu'><button>&#9668;Terug</button></a> ";
 echo "<a href='?page=projectenbeheeradd'><button>Toevoegen</button></a> ";
 echo "<button onclick='window.location=window.location;'>Ververs</button>";
 
@@ -21,7 +22,7 @@ echo "<button onclick='window.location=window.location;'>Ververs</button>";
         try 
         { 
             $stmt = $con->prepare($persoonQuery); 
-            $stmt->bindParam(':Pers_Id', $project['Pers_Id']);
+            $stmt->bindParam(':Pers_Id', $project['Owner']);
             $stmt->execute(); 
         } 
         catch(PDOException $ex) 
