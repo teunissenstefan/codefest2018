@@ -31,6 +31,7 @@
 				$rol = $stmt->fetch(PDO::FETCH_ASSOC); 
 
 				$_SESSION['loggedIn'] = $username;
+				$_SESSION['id'] = $row['Pers_Id'];
 				$_SESSION['rol'] = $rol['Rol'];
 
 				header("Location: ?page=adminmenu");
