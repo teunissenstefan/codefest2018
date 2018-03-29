@@ -1,5 +1,6 @@
 <?php
 	if (isset($_SESSION['loggedIn'])) {
+	echo "<a href='?page=adminmenu'><button>&#9668;Terug</button></a> ";
 	echo "<a href='?page=medewerkerbeheer&add=true'><button>Toevoegen</button></a> ";
 	echo "<a href='?page=medewerkerbeheer'><button>Ververs</button></a>";
 ?>
